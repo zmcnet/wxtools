@@ -1,0 +1,210 @@
+/* 页脚 */
+.site-footer {
+    background-color: #f8fafc;
+    border-top: 1px solid #e8ecf1;
+    padding: 48px 0 0;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.footer-main {
+    display: flex;
+    gap: 64px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid #e8ecf1;
+    justify-content: space-between;
+}
+
+.footer-logo-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    padding-top: 4px;
+}
+
+.footer-logo-img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+}
+
+.footer-logo-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1a2332;
+    white-space: nowrap;
+}
+
+.footer-links-side {
+    display: flex;
+    gap: 56px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.footer-col {
+    min-width: 120px;
+}
+
+.footer-col-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a2332;
+    margin: 0 0 14px;
+}
+
+.footer-col a {
+    display: block;
+    font-size: 13px;
+    color: #5a6a7a;
+    text-decoration: none;
+    padding: 4px 0;
+    transition: color 0.15s ease;
+}
+
+.footer-col a:hover {
+    color: #1a73e8;
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.footer-copyright {
+    font-size: 13px;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.footer-icp {
+    font-size: 13px;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.footer-icp:hover {
+    color: #5a6a7a;
+}
+
+.footer-beian {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.footer-gabeian {
+    font-size: 13px;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.footer-gabeian:hover {
+    color: #5a6a7a;
+}
+
+.gabeian-icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+}
+
+/* 暗色模式 */
+body.dark-mode .site-footer {
+    background-color: #0d1117;
+    border-top-color: #1e2530;
+}
+
+body.dark-mode .footer-main {
+    border-bottom-color: #1e2530;
+}
+
+body.dark-mode .footer-logo-name {
+    color: #e2e8f0;
+}
+
+body.dark-mode .footer-col-title {
+    color: #e2e8f0;
+}
+
+body.dark-mode .footer-col a {
+    color: #8896a6;
+}
+
+body.dark-mode .footer-col a:hover {
+    color: #4da3ff;
+}
+
+body.dark-mode .footer-copyright {
+    color: #4a5568;
+}
+
+body.dark-mode .footer-icp {
+    color: #4a5568;
+}
+
+body.dark-mode .footer-icp:hover {
+    color: #8896a6;
+}
+
+body.dark-mode .footer-gabeian {
+    color: #4a5568;
+}
+
+body.dark-mode .footer-gabeian:hover {
+    color: #8896a6;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .footer-main {
+        flex-direction: column;
+        gap: 28px;
+    }
+
+    .footer-logo-side {
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    .footer-logo-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .footer-links-side {
+        gap: 32px 48px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        padding: 0 20px;
+    }
+
+    .footer-links-side {
+        gap: 24px 36px;
+    }
+}

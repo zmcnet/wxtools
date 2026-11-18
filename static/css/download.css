@@ -1,0 +1,826 @@
+/* 下载页面 */
+.download-page {
+    min-height: calc(100vh - 64px);
+    background-color: #f8fafc;
+}
+
+.download-hero {
+    padding: 60px 0 48px;
+    text-align: center;
+}
+
+.download-hero-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a2332;
+    margin: 0 0 10px;
+}
+
+.download-hero-subtitle {
+    font-size: 15px;
+    color: #6b7280;
+    margin: 0;
+}
+
+.download-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 48px 80px;
+}
+
+/* 主下载卡片 */
+.download-main-card {
+    background-color: #fff;
+    border: 1px solid #e8ecf1;
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.download-main-card h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a2332;
+    margin: 0 0 8px;
+}
+
+.download-main-card .download-version {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0 0 6px;
+}
+
+.download-main-card .download-date {
+    font-size: 13px;
+    color: #94a3b8;
+    margin: 0 0 28px;
+}
+
+.download-btn-primary {
+    display: inline-block;
+    padding: 14px 48px;
+    background-color: #1a73e8;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.download-btn-primary:hover {
+    background-color: #1565c0;
+    box-shadow: 0 4px 16px rgba(26, 115, 232, 0.3);
+}
+
+.download-btns {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+}
+
+.download-btn-local {
+    display: inline-block;
+    padding: 14px 48px;
+    background-color: #fff;
+    color: #1a2332;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    border: 1px solid #d0d8e2;
+    cursor: pointer;
+}
+
+.download-btn-local:hover {
+    background-color: #f8fafc;
+    border-color: #94a3b8;
+}
+
+/* 弹窗 */
+.dl-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.dl-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dl-modal {
+    background-color: #fff;
+    border-radius: 14px;
+    width: 90%;
+    max-width: 420px;
+    max-height: 85vh;
+    overflow-y: auto;
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.25s ease;
+}
+
+.dl-modal-overlay.active .dl-modal {
+    transform: translateY(0) scale(1);
+}
+
+.dl-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px 0;
+}
+
+.dl-modal-header h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a2332;
+    margin: 0;
+}
+
+.dl-modal-close {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: none;
+    font-size: 22px;
+    color: #94a3b8;
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+}
+
+.dl-modal-close:hover {
+    background-color: #f1f5f9;
+    color: #64748b;
+}
+
+.dl-modal-body {
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* 伸缩区块 */
+.dl-section {
+    border: 1px solid #e8ecf1;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+}
+
+.dl-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    cursor: pointer;
+    user-select: none;
+    background-color: #f8fafc;
+    transition: background-color 0.15s ease;
+}
+
+.dl-section-header:hover {
+    background-color: #f1f5f9;
+}
+
+.dl-section-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a2332;
+}
+
+.dl-section-arrow {
+    font-size: 12px;
+    color: #94a3b8;
+    transition: transform 0.25s ease;
+}
+
+.dl-section.collapsed .dl-section-arrow {
+    transform: rotate(-90deg);
+}
+
+.dl-section-body {
+    max-height: 500px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    opacity: 1;
+    overflow: hidden;
+}
+
+.dl-section.collapsed .dl-section-body {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    opacity: 0;
+}
+
+.dl-section-body.animating {
+    transition: max-height 0.25s ease, padding 0.25s ease, opacity 0.2s ease;
+}
+
+/* 本地下载卡片 */
+.dl-local-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.dl-local-go {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1a73e8;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.dl-local-go:hover {
+    background-color: #1565c0;
+}
+
+.dl-local-card .dl-copy-btn {
+    font-size: 12px;
+}
+
+.dl-local-code {
+    font-size: 12px;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.dl-drive-card {
+    border: 1px solid #e8ecf1;
+    border-radius: 10px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: border-color 0.2s ease;
+}
+
+.dl-drive-card:hover {
+    border-color: #1a73e8;
+}
+
+.dl-drive-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background-color: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.dl-drive-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.dl-drive-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.dl-drive-info h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a2332;
+    margin: 0 0 1px;
+}
+
+.dl-drive-info p {
+    font-size: 12px;
+    color: #6b7280;
+    margin: 0;
+}
+
+.dl-code {
+    font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+    color: #1a73e8;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.dl-drive-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.dl-copy-btn {
+    padding: 5px 10px;
+    border: 1px solid #d0d8e2;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #5a6a7a;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.dl-copy-btn:hover {
+    border-color: #1a73e8;
+    color: #1a73e8;
+}
+
+.dl-copy-btn.copied {
+    border-color: #22c55e;
+    color: #22c55e;
+}
+
+.dl-go-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1a73e8;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.15s ease;
+    white-space: nowrap;
+}
+
+.dl-go-btn:hover {
+    background-color: #1565c0;
+}
+
+.dl-modal-footer {
+    padding: 0 18px 16px;
+}
+
+.dl-modal-footer p {
+    font-size: 12px;
+    color: #94a3b8;
+    margin: 0;
+    text-align: center;
+}
+
+/* 确认跳转弹窗 */
+.dl-confirm-dialog {
+    background-color: #fff;
+    border-radius: 14px;
+    width: 90%;
+    max-width: 320px;
+    padding: 24px 20px 20px;
+    text-align: center;
+}
+
+.dl-confirm-msg {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a2332;
+    margin: 0 0 12px;
+}
+
+.dl-confirm-code {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0 0 20px;
+}
+
+.dl-confirm-code span {
+    font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+    color: #1a73e8;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+.dl-confirm-btns {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.dl-confirm-cancel {
+    padding: 8px 24px;
+    border: 1px solid #d0d8e2;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #5a6a7a;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.dl-confirm-cancel:hover {
+    border-color: #94a3b8;
+    color: #1a2332;
+}
+
+.dl-confirm-ok {
+    padding: 8px 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1a73e8;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.dl-confirm-ok:hover {
+    background-color: #1565c0;
+}
+
+.dl-confirm-copy {
+    padding: 8px 16px;
+    border: 1px solid #d0d8e2;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #5a6a7a;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.dl-confirm-copy:hover {
+    border-color: #94a3b8;
+    color: #1a2332;
+}
+
+.download-meta {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.download-meta-item {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.download-meta-item strong {
+    color: #6b7280;
+}
+
+/* 历史版本 */
+.download-history {
+    background-color: #fff;
+    border: 1px solid #e8ecf1;
+    border-radius: 12px;
+    padding: 28px;
+}
+
+.download-history h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #1a2332;
+    margin: 0 0 16px;
+}
+
+.history-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.history-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.history-version {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a2332;
+}
+
+.history-date {
+    font-size: 13px;
+    color: #94a3b8;
+}
+
+.history-link {
+    font-size: 12px;
+    color: #5a6a7a;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 4px 14px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.15s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.history-link:hover {
+    background-color: #fff;
+    border-color: #c8d0da;
+    color: #1a2332;
+}
+
+/* 暗色模式 */
+body.dark-mode .download-page {
+    background-color: #0d1117;
+}
+
+body.dark-mode .download-hero-title {
+    color: #e2e8f0;
+}
+
+body.dark-mode .download-hero-subtitle {
+    color: #8896a6;
+}
+
+body.dark-mode .download-main-card {
+    background-color: #161b22;
+    border-color: #2a3140;
+}
+
+body.dark-mode .download-main-card h2 {
+    color: #e2e8f0;
+}
+
+body.dark-mode .download-btn-primary {
+    background-color: #1565c0;
+}
+
+body.dark-mode .download-btn-primary:hover {
+    background-color: #1a73e8;
+}
+
+body.dark-mode .download-btn-local {
+    background-color: #1e2530;
+    color: #c8d0da;
+    border-color: #2a3140;
+}
+
+body.dark-mode .download-btn-local:hover {
+    background-color: #252d3a;
+    border-color: #3a4555;
+}
+
+body.dark-mode .dl-divider::before,
+body.dark-mode .dl-divider::after {
+    background-color: #2a3140;
+}
+
+body.dark-mode .dl-divider span {
+    color: #64748b;
+}
+
+body.dark-mode .dl-modal {
+    background-color: #161b22;
+}
+
+body.dark-mode .dl-modal-header h3 {
+    color: #e2e8f0;
+}
+
+body.dark-mode .dl-modal-close {
+    color: #64748b;
+}
+
+body.dark-mode .dl-modal-close:hover {
+    background-color: #1e2530;
+    color: #94a3b8;
+}
+
+body.dark-mode .dl-drive-card {
+    border-color: #2a3140;
+}
+
+body.dark-mode .dl-drive-card:hover {
+    border-color: #4da3ff;
+}
+
+body.dark-mode .dl-drive-icon {
+    background-color: #1e2530;
+}
+
+body.dark-mode .dl-drive-info h4 {
+    color: #e2e8f0;
+}
+
+body.dark-mode .dl-drive-info p {
+    color: #8896a6;
+}
+
+body.dark-mode .dl-code {
+    color: #4da3ff;
+}
+
+body.dark-mode .dl-copy-btn {
+    background-color: #1e2530;
+    border-color: #2a3140;
+    color: #8896a6;
+}
+
+body.dark-mode .dl-copy-btn:hover {
+    border-color: #4da3ff;
+    color: #4da3ff;
+}
+
+body.dark-mode .dl-copy-btn.copied {
+    border-color: #22c55e;
+    color: #22c55e;
+}
+
+body.dark-mode .dl-go-btn {
+    background-color: #1565c0;
+}
+
+body.dark-mode .dl-go-btn:hover {
+    background-color: #1a73e8;
+}
+
+body.dark-mode .dl-modal-footer p {
+    color: #64748b;
+}
+
+body.dark-mode .dl-confirm-dialog {
+    background-color: #1e2530;
+}
+
+body.dark-mode .dl-confirm-msg {
+    color: #e2e8f0;
+}
+
+body.dark-mode .dl-confirm-code {
+    color: #8896a6;
+}
+
+body.dark-mode .dl-confirm-cancel {
+    background-color: #1e2530;
+    border-color: #2a3140;
+    color: #8896a6;
+}
+
+body.dark-mode .dl-confirm-cancel:hover {
+    border-color: #3a4a5a;
+    color: #e2e8f0;
+}
+
+body.dark-mode .dl-confirm-copy {
+    background-color: #1e2530;
+    border-color: #2a3140;
+    color: #8896a6;
+}
+
+body.dark-mode .dl-confirm-copy:hover {
+    border-color: #3a4a5a;
+    color: #e2e8f0;
+}
+
+body.dark-mode .dl-section {
+    border-color: #2a3140;
+}
+
+body.dark-mode .dl-section-header {
+    background-color: #1e2530;
+}
+
+body.dark-mode .dl-section-header:hover {
+    background-color: #252d3a;
+}
+
+body.dark-mode .dl-section-title {
+    color: #e2e8f0;
+}
+
+body.dark-mode .dl-local-go {
+    background-color: #2563eb;
+}
+
+body.dark-mode .dl-local-go:hover {
+    background-color: #1d4ed8;
+}
+
+body.dark-mode .dl-local-code {
+    color: #64748b;
+}
+
+body.dark-mode .download-history {
+    background-color: #161b22;
+    border-color: #2a3140;
+}
+
+body.dark-mode .download-history h3 {
+    color: #e2e8f0;
+}
+
+body.dark-mode .history-version {
+    color: #e2e8f0;
+}
+
+body.dark-mode .history-item {
+    border-bottom-color: #2a3140;
+}
+
+body.dark-mode .history-link {
+    color: #8896a6;
+    background-color: #1e2530;
+    border-color: #2a3140;
+}
+
+body.dark-mode .history-link:hover {
+    background-color: #252d3a;
+    border-color: #3a4555;
+    color: #c8d0da;
+}
+
+body.dark-mode .dl-local-btn {
+    background-color: #1e2530;
+    color: #c8d0da;
+    border-color: #2a3140;
+}
+
+body.dark-mode .dl-local-btn:hover {
+    background-color: #252d3a;
+    border-color: #3a4555;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .download-hero {
+        padding: 40px 0 32px;
+    }
+
+    .download-hero-title {
+        font-size: 26px;
+    }
+
+    .download-container {
+        padding: 0 20px 60px;
+    }
+
+    .download-main-card {
+        padding: 28px 20px;
+    }
+
+    .req-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .download-hero {
+        padding: 32px 0 24px;
+    }
+
+    .download-hero-title {
+        font-size: 22px;
+    }
+
+    .download-container {
+        padding: 0 16px 48px;
+    }
+
+    .download-main-card {
+        padding: 24px 16px;
+    }
+
+    .download-meta {
+        gap: 16px;
+    }
+}

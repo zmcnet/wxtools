@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico">
+    <title data-en="Download | Wuxin Tools">下载中心 | 无心工具箱</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/download.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/animations.css">
+    <style>
+    .download-en-section { display: none; }
+    .download-en-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+    .download-en-section .download-hero {
+      padding: 60px 0 48px;
+      text-align: center;
+    }
+    .download-en-section .download-hero h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin: 0 0 10px;
+      color: var(--text-color, #1a2332);
+    }
+    .download-en-section .download-hero p {
+      font-size: 15px;
+      color: var(--text-secondary, #6b7280);
+      margin: 0;
+    }
+    .download-en-main {
+      background: var(--card-bg, #fff);
+      border: 1px solid var(--border-color, #e0e0e0);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .download-en-main h2 {
+      font-size: 22px;
+      margin: 0 0 8px;
+      color: var(--text-color, #1a2332);
+    }
+    .download-en-history {
+      background: var(--card-bg, #fff);
+      border: 1px solid var(--border-color, #e0e0e0);
+      border-radius: 12px;
+      padding: 28px;
+    }
+    .download-en-history h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-color, #1a2332);
+      margin: 0 0 16px;
+    }
+    .download-btn-en {
+      display: inline-block;
+      padding: 14px 48px;
+      background: linear-gradient(135deg, #1a73e8, #0d47a1);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .download-btn-en:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(26, 115, 232, 0.4);
+    }
+    .download-en-note {
+      margin-top: 16px;
+      color: #666;
+      font-size: 14px;
+    }
+    body.dark-mode .download-en-note {
+      color: #999;
+    }
+    body.dark-mode .download-en-main {
+      background: #161b22;
+      border-color: #2a3140;
+    }
+    body.dark-mode .download-en-main h2 {
+      color: #e2e8f0;
+    }
+    body.dark-mode .download-en-main .download-version {
+      color: #8896a6;
+    }
+    body.dark-mode .download-en-main .download-date {
+      color: #4a5568;
+    }
+    body.dark-mode .download-en-main .download-meta-item {
+      color: #4a5568;
+    }
+    body.dark-mode .download-en-main .download-meta-item strong {
+      color: #8896a6;
+    }
+    body.dark-mode .download-en-history {
+      background: #161b22;
+      border-color: #2a3140;
+    }
+    body.dark-mode .download-en-history h3 {
+      color: #e2e8f0;
+    }
+    body.dark-mode .download-en-history .history-version {
+      color: #e2e8f0;
+    }
+    body.dark-mode .download-en-history .history-date {
+      color: #4a5568;
+    }
+    body.dark-mode .download-en-history .history-item {
+      border-bottom-color: #2a3140;
+    }
+    body.dark-mode .download-en-history .history-link {
+      color: #8896a6;
+      background: #1e2530;
+      border-color: #2a3140;
+    }
+    body.dark-mode .download-en-history .history-link:hover {
+      color: #c8d0da;
+      background: #252d3a;
+      border-color: #3a4555;
+    }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="../favicon.ico" alt="没有心科技" class="logo-icon">
+                <a href="../index.html" class="logo-text" data-en="NoHeart Tech">没有心科技</a>
+            </div>
+            <div class="menu-section">
+                <nav class="main-menu">
+                    <a href="../index.html" class="menu-item" data-en="Home">首页</a>
+                    <a href="../rom/index.html" class="menu-item" data-en="ROM">ROM发布</a>
+                    <a href="index.html" class="menu-item active" data-en="Wuxin Tools">无心工具箱</a>
+                    <a href="#" class="menu-item" data-en="Community">社区论坛</a>
+                    <a href="../docs/index.html" class="menu-item" data-en="Tutorial">教程文档</a>
+                    <a href="../contact.html" class="menu-item" data-en="Contact">联系我们</a>
+                </nav>
+                <div class="custom-functions">
+                    <button id="theme-toggle" class="theme-toggle btn-press" aria-label="切换主题">
+                        <span class="theme-icon">🌙</span>
+                        <span class="theme-text" data-en="Light">主题</span>
+                    </button>
+                    <button id="hamburger-btn" class="hamburger-btn btn-press" aria-label="打开菜单">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="menu-overlay" class="menu-overlay"></div>
+    <nav id="mobile-menu" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title" data-en="Menu">菜单</span>
+            <button id="mobile-menu-close" class="mobile-menu-close btn-press" aria-label="关闭菜单">&times;</button>
+        </div>
+        <a href="../index.html" class="mobile-menu-item" data-en="Home">首页</a>
+        <a href="../rom/index.html" class="mobile-menu-item" data-en="ROM">ROM发布</a>
+        <a href="index.html" class="mobile-menu-item active" data-en="Wuxin Tools">无心工具箱</a>
+        <a href="#" class="mobile-menu-item" data-en="Community">社区论坛</a>
+        <a href="../docs/index.html" class="mobile-menu-item" data-en="Tutorial">教程文档</a>
+        <a href="../contact.html" class="mobile-menu-item" data-en="Contact">联系我们</a>
+        <span class="mobile-menu-sub-label" data-en="Tools">工具</span>
+        <a href="../tools/index.html" class="mobile-menu-sub-item" data-en="Home">首页</a>
+        <a href="../tools/download.html" class="mobile-menu-sub-item active" data-en="Download">下载中心</a>
+        <a href="../tools/doc/index.html" class="mobile-menu-sub-item" data-en="Docs">使用文档</a>
+        <a href="../tools/update.html" class="mobile-menu-sub-item" data-en="Updates">更新日志</a>
+        <div class="mobile-menu-divider"></div>
+        <button id="mobile-theme-toggle" class="mobile-theme-toggle btn-press">
+            <span class="theme-icon">🌙</span>
+            <span class="theme-text" data-en="Light">切换主题</span>
+        </button>
+    </nav>
+
+    <!-- 无心工具箱子导航 -->
+    <nav class="sub-nav">
+        <div class="sub-nav-inner">
+            <a href="../tools/index.html" class="sub-nav-item" data-en="Home">首页</a>
+            <a href="../tools/download.html" class="sub-nav-item active" data-en="Download">下载中心</a>
+            <a href="../tools/doc/index.html" class="sub-nav-item" data-en="Docs">使用文档</a>
+            <a href="../tools/update.html" class="sub-nav-item" data-en="Updates">更新日志</a>
+        </div>
+    </nav>
+
+    <main class="download-page">
+        <section class="download-hero">
+            <h1 class="download-hero-title hero-enter" data-en="Download Wuxin Tools">下载无心工具箱</h1>
+            <p class="download-hero-subtitle hero-enter hero-enter-d1" data-en="Free, safe, ready to use">免费、安全、开箱即用</p>
+        </section>
+
+        <div class="download-container">
+            <!-- 主下载卡片 -->
+            <div class="download-main-card anim anim-scale">
+                <h2 data-en="Wuxin Tools">无心工具箱</h2>
+                <p class="download-version" data-en="Latest version: v1.2.4">最新版本 v1.2.4</p>
+                <p class="download-date" data-en="Release date: June 18, 2026">发布日期：2026年6月18日</p>
+                <div class="download-btns">
+                    <a href="#" class="download-btn-local btn-press" data-en="Local">本地下载</a>
+                    <button id="highspeed-btn" class="download-btn-primary btn-press" data-en="Cloud">高速下载</button>
+                </div>
+                <div class="download-meta">
+                    <span class="download-meta-item" data-en="Windows 10+ recommended"><strong>系统：</strong>建议Windows 10+</span>
+                    <span class="download-meta-item" data-en="x64"><strong>架构：</strong>x64</span>
+                    <span class="download-meta-item" data-en="~45 MB"><strong>大小：</strong>约 45 MB</span>
+                    <span class="download-meta-item" data-en="Free"><strong>许可：</strong>免费</span>
+                </div>
+            </div>
+
+            <!-- 历史版本 -->
+            <div class="download-history anim anim-fade-up">
+                <h3 data-en="Version History">历史版本</h3>
+                <ul class="history-list">
+                    <li class="history-item">
+                        <div class="history-info">
+                            <span class="history-version">v1.1.3</span>
+                            <span class="history-date">2026年4月27日</span>
+                        </div>
+                        <button class="history-link btn-press" data-version="v1.1.3" data-en="Download">下载</button>
+                    </li>
+                    <li class="history-item">
+                        <div class="history-info">
+                            <span class="history-version">v1.1.2</span>
+                            <span class="history-date">2026年4月15日</span>
+                        </div>
+                        <button class="history-link btn-press" data-version="v1.1.2" data-en="Download">下载</button>
+                    </li>
+                    <li class="history-item">
+                        <div class="history-info">
+                            <span class="history-version">v1.0.1</span>
+                            <span class="history-date">2026年4月12日</span>
+                        </div>
+                        <button class="history-link btn-press" data-version="v1.0.1" data-en="Download">下载</button>
+                    </li>
+                    <li class="history-item">
+                        <div class="history-info">
+                            <span class="history-version">v1.0.0</span>
+                            <span class="history-date">2026年4月11日</span>
+                        </div>
+                        <button class="history-link btn-press" data-version="v1.0.0" data-en="Download">下载</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-logo-side">
+                    <img src="../favicon.ico" alt="没有心科技" class="footer-logo-img">
+                    <span class="footer-logo-name" data-en="NoHeart Tech">没有心科技</span>
+                </div>
+                <div class="footer-links-side">
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="Navigation">导航</h4>
+                        <a href="../index.html" data-en="Home">首页</a>
+                        <a href="../rom/index.html" data-en="ROM">ROM发布</a>
+                        <a href="index.html" data-en="Wuxin Tools">无心工具箱</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="NoHeart Tech">没有心科技</h4>
+                        <a href="https://wx.ysyplat.cn/rom" target="_blank" rel="noopener" data-en="ROM Releases">ROM发布</a>
+                        <a href="https://wx.ysyplat.cn/tools" target="_blank" rel="noopener" data-en="Wuxin Tools">无心工具箱</a>
+                        <a href="#" target="_blank" rel="noopener" data-en="Community">社区论坛</a>
+                        <a href="../contact.html" target="_blank" rel="noopener" data-en="Contact Us">联系我们</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="Links">友情链接</h4>
+                        <a href="https://www.kybll.cn/" target="_blank" rel="noopener" data-en="KYBLL">空雨不流泪</a>
+                        <a href="https://www.ysyplat.com/" target="_blank" rel="noopener" data-en="YSYPLAT">屿笙云平台</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright" data-en="&copy; 2025-2026 NoHeart Tech. All Rights Reserved.">&copy; 2025-2026 没有心科技. All Rights Reserved.</p>
+                <div class="footer-beian" data-en=" ">
+                    <a class="footer-icp" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">浙ICP备2023036308号-9</a>
+                    <a class="footer-gabeian" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33019202003173" target="_blank" rel="noopener">
+                        <img src="../static/images/gabeian.png" alt="" class="gabeian-icon">浙公网安备33019202003173号
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="dl-modal" class="dl-modal-overlay modal-enter">
+        <div class="dl-modal">
+            <div class="dl-modal-header">
+                <h3 data-en="Download">下载 <span id="dl-modal-version">v1.2.4</span></h3>
+                <button id="dl-modal-close" class="dl-modal-close" aria-label="关闭">&times;</button>
+            </div>
+            <div class="dl-modal-body">
+                <!-- 本地下载区 -->
+                <div class="dl-section" id="dl-local-section">
+                    <div class="dl-section-header" data-section="local">
+                        <span class="dl-section-title" data-en="Local">本地下载</span>
+                        <span class="dl-section-arrow">▾</span>
+                    </div>
+                    <div class="dl-section-body">
+                        <div class="dl-local-card" data-name="蓝奏云" data-url="#" data-code="">
+                            <button class="dl-local-go btn-press" data-en="Go to Download">前往下载</button>
+                            <button class="dl-copy-btn btn-press" data-code="" data-en="Copy Code">复制提取码</button>
+                            <p class="dl-local-code">提取码：<span class="dl-code">----</span></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 高速下载区 -->
+                <div class="dl-section" id="dl-highspeed-section">
+                    <div class="dl-section-header" data-section="highspeed">
+                        <span class="dl-section-title" data-en="Cloud Drive">高速下载</span>
+                        <span class="dl-section-arrow">▾</span>
+                    </div>
+                    <div class="dl-section-body">
+                        <div class="dl-drive-card" data-name="移动云盘" data-url="#" data-code="">
+                            <div class="dl-drive-icon"><img src="../static/images/yidong.webp" alt="移动云盘"></div>
+                            <div class="dl-drive-info">
+                                <h4>移动云盘</h4>
+                                <p>提取码：<span class="dl-code">----</span></p>
+                            </div>
+                            <div class="dl-drive-actions">
+                                <button class="dl-copy-btn btn-press" data-code="" data-en="Copy Code">复制提取码</button>
+                                <button class="dl-go-btn btn-press" data-en="Go">前往下载</button>
+                            </div>
+                        </div>
+                        <div class="dl-drive-card" data-name="123云盘" data-url="#" data-code="">
+                            <div class="dl-drive-icon"><img src="../static/images/123pan.webp" alt="123云盘"></div>
+                            <div class="dl-drive-info">
+                                <h4>123云盘</h4>
+                                <p>提取码：<span class="dl-code">----</span></p>
+                            </div>
+                            <div class="dl-drive-actions">
+                                <button class="dl-copy-btn btn-press" data-code="" data-en="Copy Code">复制提取码</button>
+                                <button class="dl-go-btn btn-press" data-en="Go">前往下载</button>
+                            </div>
+                        </div>
+                        <div class="dl-drive-card" data-name="夸克网盘" data-url="#" data-code="">
+                            <div class="dl-drive-icon"><img src="../static/images/kuake.webp" alt="夸克网盘"></div>
+                            <div class="dl-drive-info">
+                                <h4>夸克网盘</h4>
+                                <p>提取码：<span class="dl-code">----</span></p>
+                            </div>
+                            <div class="dl-drive-actions">
+                                <button class="dl-copy-btn btn-press" data-code="" data-en="Copy Code">复制提取码</button>
+                                <button class="dl-go-btn btn-press" data-en="Go">前往下载</button>
+                            </div>
+                        </div>
+                        <div class="dl-drive-card" data-name="百度网盘" data-url="#" data-code="">
+                            <div class="dl-drive-icon"><img src="../static/images/baidu.webp" alt="百度网盘"></div>
+                            <div class="dl-drive-info">
+                                <h4>百度网盘</h4>
+                                <p>提取码：<span class="dl-code">----</span></p>
+                            </div>
+                            <div class="dl-drive-actions">
+                                <button class="dl-copy-btn btn-press" data-code="" data-en="Copy Code">复制提取码</button>
+                                <button class="dl-go-btn btn-press" data-en="Go">前往下载</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dl-modal-footer">
+                <p data-en="Choose a cloud drive, copy the code and visit the drive page to download">选择网盘后，复制提取码并前往网盘页面粘贴即可下载</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 确认跳转弹窗 -->
+    <div id="dl-confirm" class="dl-modal-overlay modal-enter">
+        <div class="dl-confirm-dialog">
+            <p class="dl-confirm-msg" id="dl-confirm-msg">是否跳转xxx前往下载？</p>
+            <p class="dl-confirm-code">提取码：<span id="dl-confirm-code">----</span></p>
+            <div class="dl-confirm-btns">
+                <button class="dl-confirm-copy btn-press" id="dl-confirm-copy" data-en="Copy Code">复制提取码</button>
+                <button class="dl-confirm-cancel btn-press" id="dl-confirm-cancel" data-en="Cancel">取消</button>
+                <button class="dl-confirm-ok btn-press" id="dl-confirm-ok" data-en="OK">确认</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/js/config.js"></script>
+    <script src="../static/js/theme.js"></script>
+    <script src="../static/js/page-transition.js"></script>
+    <script src="../static/js/animations.js"></script>
+    <script src="../static/js/img-protect.js"></script>
+    <script src="../static/js/i18n.js"></script>
+    <script>
+    (function() {
+        var modal = document.getElementById('dl-modal');
+        var closeBtn = document.getElementById('dl-modal-close');
+        var versionSpan = document.getElementById('dl-modal-version');
+        var localSection = document.getElementById('dl-local-section');
+        var highspeedSection = document.getElementById('dl-highspeed-section');
+
+        var confirmEl = document.getElementById('dl-confirm');
+        var confirmMsg = document.getElementById('dl-confirm-msg');
+        var confirmCode = document.getElementById('dl-confirm-code');
+        var confirmCancel = document.getElementById('dl-confirm-cancel');
+        var confirmOk = document.getElementById('dl-confirm-ok');
+        var confirmCopy = document.getElementById('dl-confirm-copy');
+        var pendingUrl = '#';
+        var pendingCode = '';
+
+        var localCard = document.querySelector('.dl-local-card');
+        var localCodeSpan = localCard.querySelector('.dl-code');
+        var localCopyBtn = localCard.querySelector('.dl-copy-btn');
+        var driveCards = document.querySelectorAll('.dl-drive-card');
+
+        var versionData = {
+            'v1.2.4': {
+                url: 'https://kybll.lanzn.com/ih3KB3sb0a7a', code: '5bny',
+                drives: [
+                    { url: 'https://yun.139.com/shareweb/#/w/i/2v3ECQtsBLh88', code: '' },
+                    { url: 'https://1832189804.share.123pan.cn/123pan/PpKjjv-EkI83?pwd=mDrR#', code: 'mDrR' }
+                ]
+            },
+            'v1.1.3': {
+                url: 'https://kybll.lanzn.com/iq0Oj3rag8mh', code: 'b7ay',
+                drives: [
+                    { url: 'https://yun.139.com/shareweb/#/w/i/2v3ECQtsBLh88', code: '' },
+                    { url: 'https://1832189804.share.123pan.cn/123pan/PpKjjv-wyP83', code: 'WA79' },
+                    { url: 'https://pan.quark.cn/s/662ebf73e68e?pwd=4gd1', code: '4gd1' },
+                    { url: 'https://pan.baidu.com/s/1K-r9a8sFqnAxsdbo2AsRNA?pwd=gcdw', code: 'gcdw' }
+                ]
+            },
+            'v1.1.2': {
+                url: 'https://kybll.lanzn.com/ivY6l3rag8ni', code: 'ewje',
+                drives: [
+                    { url: 'https://yun.139.com/shareweb/#/w/i/2v3ECQtsBLh88', code: '' },
+                    { url: 'https://1832189804.share.123pan.cn/123pan/PpKjjv-PNU83?pwd=h4bO#', code: 'h4bO' },
+                    { url: 'https://pan.quark.cn/s/a53ead6c1c81?pwd=rFWy', code: 'rFWy' },
+                    { url: 'https://pan.baidu.com/s/15lr2fZjPQyYZwTomp0xBcQ?pwd=xhd8', code: 'xhd8' }
+                ]
+            },
+            'v1.0.1': {
+                url: 'https://kybll.lanzn.com/iMFtC3n44lmd', code: 'aue3',
+                drives: [
+                    { url: 'https://yun.139.com/shareweb/#/w/i/2v3ECQtsBLh88', code: '' },
+                    { url: 'https://1832189804.share.123pan.cn/123pan/PpKjjv-p6er3?pwd=SU8T#', code: 'SU8T' },
+                    { url: 'https://pan.quark.cn/s/d1036ba49560?pwd=tH4V', code: 'tH4V' },
+                    { url: 'https://pan.baidu.com/s/12TXpe8kfgkkbIxRQbPPM5Q?pwd=3p5s', code: '3p5s' }
+                ]
+            },
+            'v1.0.0': {
+                url: 'https://kybll.lanzn.com/iA6NM3n44l7i', code: 'fhay',
+                drives: [
+                    { url: 'https://yun.139.com/shareweb/#/w/i/2v3ECQtsBLh88', code: '' },
+                    { url: 'https://1832189804.share.123pan.cn/123pan/PpKjjv-XNU83?pwd=VcjL#', code: 'VcjL' },
+                    { url: 'https://pan.quark.cn/s/14c4a21ab31f?pwd=xSJ8', code: 'xSJ8' },
+                    { url: 'https://pan.baidu.com/s/1oNMg8mNS9nnOiZ3K2dWYKQ?pwd=nhv9', code: 'nhv9' }
+                ]
+            }
+        };
+
+        function expandSection(section, animate) {
+            var body = section.querySelector('.dl-section-body');
+            if (animate) {
+                body.classList.add('animating');
+                body.addEventListener('transitionend', function handler() {
+                    body.classList.remove('animating');
+                    body.removeEventListener('transitionend', handler);
+                });
+            }
+            section.classList.add('expanded');
+            section.classList.remove('collapsed');
+        }
+
+        function collapseSection(section, animate) {
+            var body = section.querySelector('.dl-section-body');
+            if (animate) {
+                body.classList.add('animating');
+                body.addEventListener('transitionend', function handler() {
+                    body.classList.remove('animating');
+                    body.removeEventListener('transitionend', handler);
+                });
+            }
+            section.classList.remove('expanded');
+            section.classList.add('collapsed');
+        }
+
+        function openModal(version, mode) {
+            versionSpan.textContent = version;
+            // 更新本地下载链接和提取码
+            var vd = versionData[version];
+            if (vd) {
+                localCard.setAttribute('data-url', vd.url);
+                localCard.setAttribute('data-code', vd.code);
+                localCodeSpan.textContent = vd.code;
+                localCopyBtn.setAttribute('data-code', vd.code);
+                // 更新高速下载链接和提取码
+                if (vd.drives) {
+                    for (var i = 0; i < driveCards.length; i++) {
+                        if (i < vd.drives.length) {
+                            var d = vd.drives[i];
+                            driveCards[i].setAttribute('data-url', d.url);
+                            driveCards[i].setAttribute('data-code', d.code);
+                            driveCards[i].querySelector('.dl-code').textContent = d.code || '无';
+                            driveCards[i].querySelector('.dl-copy-btn').setAttribute('data-code', d.code);
+                            driveCards[i].querySelector('.dl-copy-btn').style.display = d.code ? '' : 'none';
+                            driveCards[i].style.display = '';
+                        } else {
+                            driveCards[i].style.display = 'none';
+                        }
+                    }
+                }
+            }
+            if (mode === 'local') {
+                expandSection(localSection, false);
+                collapseSection(highspeedSection, false);
+            } else {
+                expandSection(highspeedSection, false);
+                collapseSection(localSection, false);
+            }
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function copyCode(code) {
+            if (!code) return;
+            var ta = document.createElement('textarea');
+            ta.value = code;
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            document.body.removeChild(ta);
+        }
+
+        function openConfirm(name, url, code) {
+            confirmMsg.textContent = '是否跳转' + name + '前往下载？';
+            confirmCode.textContent = code || '无';
+            pendingUrl = url;
+            pendingCode = code;
+            confirmCopy.style.display = code ? '' : 'none';
+            confirmEl.classList.add('active');
+        }
+
+        function closeConfirm() {
+            confirmEl.classList.remove('active');
+            pendingUrl = '#';
+            pendingCode = '';
+        }
+
+        // 英文版弹窗：直接弹出确认跳转
+        window.enOpenModal = function(version) {
+            var vd = versionData[version];
+            if (vd) {
+                var isEn = window.i18n && window.i18n.isEn ? window.i18n.isEn() : false;
+                var codeP = document.querySelector('.dl-confirm-code');
+                if (isEn) {
+                    confirmMsg.textContent = 'Go to download page?';
+                    if (codeP) codeP.innerHTML = vd.code ? 'Code: <span id="dl-confirm-code">' + vd.code + '</span>' : '';
+                } else {
+                    confirmMsg.textContent = '是否跳转下载页面？';
+                    if (codeP) codeP.innerHTML = '提取码：<span id="dl-confirm-code">' + (vd.code || '----') + '</span>';
+                }
+                pendingUrl = vd.url;
+                pendingCode = vd.code || '';
+                confirmCopy.style.display = vd.code ? '' : 'none';
+                confirmEl.classList.add('active');
+            }
+        };
+
+        // 主卡片按钮
+        document.getElementById('highspeed-btn').addEventListener('click', function() {
+            openModal('v1.2.4', 'highspeed');
+        });
+
+        // 本地下载按钮
+        document.querySelector('.download-btn-local').addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal('v1.2.4', 'local');
+        });
+
+        // 历史版本按钮
+        document.querySelectorAll('.history-link[data-version]').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                openModal(this.getAttribute('data-version'), 'local');
+            });
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeModal();
+        });
+
+        // 区块伸缩切换（先折叠当前，再展开目标）
+        document.querySelectorAll('.dl-section-header').forEach(function(header) {
+            header.addEventListener('click', function() {
+                var section = this.parentElement;
+                if (!section.classList.contains('collapsed')) return;
+                var other = section === localSection ? highspeedSection : localSection;
+                var otherBody = other.querySelector('.dl-section-body');
+                otherBody.classList.add('animating');
+                otherBody.addEventListener('transitionend', function handler() {
+                    otherBody.removeEventListener('transitionend', handler);
+                    otherBody.classList.remove('animating');
+                    collapseSection(other, false);
+                    expandSection(section, true);
+                });
+                // 触发折叠动画
+                other.classList.remove('expanded');
+                other.classList.add('collapsed');
+            });
+        });
+
+        // 复制提取码（下载弹窗内）
+        document.querySelectorAll('.dl-copy-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var code = this.getAttribute('data-code');
+                if (!code) return;
+                copyCode(code);
+                var orig = this.textContent;
+                this.textContent = '已复制';
+                this.classList.add('copied');
+                var self = this;
+                setTimeout(function() {
+                    self.textContent = orig;
+                    self.classList.remove('copied');
+                }, 1500);
+            });
+        });
+
+        // 前往下载 → 弹确认框
+        document.querySelectorAll('.dl-local-go, .dl-drive-card .dl-go-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var card = this.closest('.dl-local-card, .dl-drive-card');
+                openConfirm(card.getAttribute('data-name'), card.getAttribute('data-url'), card.getAttribute('data-code'));
+            });
+        });
+
+        // 确认弹窗
+        confirmCancel.addEventListener('click', closeConfirm);
+        confirmEl.addEventListener('click', function(e) {
+            if (e.target === confirmEl) closeConfirm();
+        });
+        confirmOk.addEventListener('click', function() {
+            if (pendingUrl && pendingUrl !== '#') {
+                window.open(pendingUrl, '_blank');
+            }
+            closeConfirm();
+        });
+        confirmCopy.addEventListener('click', function() {
+            if (pendingCode) {
+                copyCode(pendingCode);
+                var orig = this.textContent;
+                this.textContent = '已复制';
+                var self = this;
+                setTimeout(function() {
+                    self.textContent = orig;
+                }, 1500);
+            }
+        });
+    })();
+    </script>
+    <script>
+    // Listen for language changes to show/hide EN vs CN content
+    function applyDownloadLang() {
+      var isEn = window.i18n && window.i18n.isEn ? window.i18n.isEn() : false;
+      var downloadPage = document.querySelector('.download-page');
+      var downloadContainer = document.querySelector('.download-container');
+      var modal = document.getElementById('dl-modal');
+      var confirm = document.getElementById('dl-confirm');
+      
+      if (isEn) {
+        // English mode: use same modal but simplified
+        if (downloadPage && !document.querySelector('.download-en-section')) {
+          var enSection = document.createElement('section');
+          enSection.className = 'download-en-section';
+          enSection.innerHTML = '<div class="download-en-container">' +
+            '<div class="download-en-main anim anim-scale">' +
+            '<h2>Wuxin Tools</h2>' +
+            '<p class="download-version">Latest version: v1.2.4</p>' +
+            '<p class="download-date">Release date: June 18, 2026</p>' +
+            '<div class="download-btns">' +
+            '<button class="download-btn-en btn-press" data-en-version="v1.2.4">Download v1.2.4</button>' +
+            '</div>' +
+            '<div class="download-meta">' +
+            '<span class="download-meta-item"><strong>System:</strong> Windows 10+ recommended</span>' +
+            '<span class="download-meta-item"><strong>Architecture:</strong> x64</span>' +
+            '<span class="download-meta-item"><strong>Size:</strong> ~45 MB</span>' +
+            '<span class="download-meta-item"><strong>License:</strong> Free</span>' +
+            '</div>' +
+            '</div>' +
+            '<div class="download-en-history anim anim-fade-up">' +
+            '<h3>Version History</h3>' +
+            '<ul class="history-list">' +
+            '<li class="history-item"><div class="history-info"><span class="history-version">v1.1.3</span><span class="history-date">April 27, 2026</span></div><button class="history-link en-dl-btn" data-en-version="v1.1.3">Download</button></li>' +
+            '<li class="history-item"><div class="history-info"><span class="history-version">v1.1.2</span><span class="history-date">April 15, 2026</span></div><button class="history-link en-dl-btn" data-en-version="v1.1.2">Download</button></li>' +
+            '<li class="history-item"><div class="history-info"><span class="history-version">v1.0.1</span><span class="history-date">April 12, 2026</span></div><button class="history-link en-dl-btn" data-en-version="v1.0.1">Download</button></li>' +
+            '<li class="history-item"><div class="history-info"><span class="history-version">v1.0.0</span><span class="history-date">April 11, 2026</span></div><button class="history-link en-dl-btn" data-en-version="v1.0.0">Download</button></li>' +
+            '</ul></div></div>';
+          downloadPage.appendChild(enSection);
+
+          // Attach event listeners for EN download buttons
+          enSection.querySelectorAll('[data-en-version]').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+              var ver = this.getAttribute('data-en-version');
+              if (window.enOpenModal) {
+                window.enOpenModal(ver);
+              }
+            });
+          });
+        }
+        if (downloadContainer) downloadContainer.style.display = 'none';
+        if (document.querySelector('.download-en-section')) document.querySelector('.download-en-section').style.display = 'block';
+        // Keep modal/confirm visible so EN buttons can use them
+        if (modal) modal.style.display = '';
+        if (confirm) confirm.style.display = '';
+      } else {
+        // Chinese mode: show original content
+        if (downloadContainer) downloadContainer.style.display = '';
+        if (document.querySelector('.download-en-section')) document.querySelector('.download-en-section').style.display = 'none';
+      }
+    }
+    document.addEventListener('langchange', applyDownloadLang);
+    if (window.i18n) applyDownloadLang();
+    </script>
+</body>
+</html>

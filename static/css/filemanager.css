@@ -1,0 +1,188 @@
+/* 文件管理展示区 */
+.filemanager {
+    padding: 80px 0;
+    background-color: #f8fafc;
+}
+
+.filemanager-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+}
+
+.filemanager-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.filemanager-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a2332;
+    margin: 0 0 12px;
+}
+
+.filemanager-subtitle {
+    font-size: 16px;
+    color: #6b7280;
+    margin: 0;
+}
+
+.filemanager-body {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+/* 介绍文字 */
+.filemanager-intro {
+    flex: 1;
+    min-width: 0;
+}
+
+.filemanager-intro p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #3a4556;
+    margin: 0 0 20px;
+}
+
+.filemanager-intro p:last-child {
+    margin-bottom: 0;
+}
+
+.filemanager-intro strong {
+    color: #0d9488;
+    font-weight: 600;
+}
+
+/* 预览图 */
+.filemanager-preview {
+    flex: 1.1;
+    min-width: 0;
+}
+
+.filemanager-preview .preview-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    object-fit: contain;
+}
+
+.filemanager-preview-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: #fff;
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #94a3b8;
+}
+
+.filemanager-preview-placeholder svg {
+    width: 56px;
+    height: 56px;
+}
+
+.filemanager-preview-placeholder span {
+    font-size: 14px;
+}
+
+/* 暗色模式 */
+body.dark-mode .filemanager {
+    background-color: #141414;
+}
+
+body.dark-mode .filemanager-title {
+    color: #e0e0e0;
+}
+
+body.dark-mode .filemanager-subtitle {
+    color: #8896a6;
+}
+
+body.dark-mode .filemanager-intro p {
+    color: #b0bcc8;
+}
+
+body.dark-mode .filemanager-intro strong {
+    color: #2dd4bf;
+}
+
+body.dark-mode .filemanager-preview-placeholder {
+    background-color: #252d3a;
+    border-color: #3a4563;
+    color: #5a6a80;
+}
+
+/* 响应式 */
+@media (max-width: 970px) {
+    .filemanager-body {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filemanager-intro {
+        width: 100%;
+    }
+
+    .filemanager-preview {
+        width: 100%;
+        max-width: 520px;
+    }
+}
+
+@media (max-width: 768px) {
+    .filemanager {
+        padding: 56px 0;
+    }
+
+    .filemanager-container {
+        padding: 0 20px;
+    }
+
+    .filemanager-header {
+        margin-bottom: 36px;
+    }
+
+    .filemanager-title {
+        font-size: 26px;
+    }
+
+    .filemanager-subtitle {
+        font-size: 14px;
+    }
+
+    .filemanager-intro p {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+}
+
+@media (max-width: 480px) {
+    .filemanager {
+        padding: 40px 0;
+    }
+
+    .filemanager-container {
+        padding: 0 16px;
+    }
+
+    .filemanager-header {
+        margin-bottom: 28px;
+    }
+
+    .filemanager-title {
+        font-size: 22px;
+    }
+
+    .filemanager-intro p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+}

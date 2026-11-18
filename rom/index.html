@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico">
+    <title data-en="ROM Releases | NoHeart Tech">ROM发布 | 没有心科技</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/animations.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="../favicon.ico" alt="没有心科技" class="logo-icon">
+                <a href="../index.html" class="logo-text" data-en="NoHeart Tech">没有心科技</a>
+            </div>
+            <div class="menu-section">
+                <nav class="main-menu">
+                    <a href="../index.html" class="menu-item" data-en="Home">首页</a>
+                    <a href="index.html" class="menu-item active" data-en="ROM">ROM发布</a>
+                    <a href="../tools/index.html" class="menu-item" data-en="Wuxin Tools">无心工具箱</a>
+                    <a href="#" class="menu-item" data-en="Community">社区论坛</a>
+                    <a href="../docs/index.html" class="menu-item" data-en="Tutorial">教程文档</a>
+                    <a href="../contact.html" class="menu-item" data-en="Contact">联系我们</a>
+                </nav>
+                <div class="custom-functions">
+                    <button id="theme-toggle" class="theme-toggle btn-press" aria-label="切换主题">
+                        <span class="theme-icon">🌙</span>
+                        <span class="theme-text" data-en="Light">主题</span>
+                    </button>
+                    <button id="hamburger-btn" class="hamburger-btn btn-press" aria-label="打开菜单">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="menu-overlay" class="menu-overlay"></div>
+    <nav id="mobile-menu" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title" data-en="Menu">菜单</span>
+            <button id="mobile-menu-close" class="mobile-menu-close btn-press" aria-label="关闭菜单">&times;</button>
+        </div>
+        <a href="../index.html" class="mobile-menu-item" data-en="Home">首页</a>
+        <a href="index.html" class="mobile-menu-item active" data-en="ROM">ROM发布</a>
+        <a href="../tools/index.html" class="mobile-menu-item" data-en="Wuxin Tools">无心工具箱</a>
+        <a href="#" class="mobile-menu-item" data-en="Community">社区论坛</a>
+        <a href="../docs/index.html" class="mobile-menu-item" data-en="Tutorial">教程文档</a>
+        <a href="../contact.html" class="mobile-menu-item" data-en="Contact">联系我们</a>
+        <div class="mobile-menu-divider"></div>
+        <button id="mobile-theme-toggle" class="mobile-theme-toggle btn-press">
+            <span class="theme-icon">🌙</span>
+            <span class="theme-text" data-en="Light">切换主题</span>
+        </button>
+    </nav>
+
+    <main class="rom-page">
+        <section class="banner" style="padding:80px 0 60px;">
+            <div class="banner-container" style="flex-direction:column;text-align:center;">
+                <h1 class="banner-title hero-enter" data-en="ROM Releases" style="font-size:40px;">ROM 发布</h1>
+                <p class="banner-desc hero-enter hero-enter-d1" data-en="High-quality Android ROMs, carefully crafted for your device" style="max-width:600px;margin:16px auto 0;">高品质 Android ROM，精心适配每一款设备</p>
+            </div>
+        </section>
+
+        <div class="rom-container" style="max-width:860px;margin:0 auto;padding:0 48px 80px;">
+            <div class="rom-empty anim anim-fade-up" style="text-align:center;padding:80px 0;">
+                <p style="font-size:18px;color:#94a3b8;margin:0 0 12px;" data-en="No ROM releases yet. Coming soon...">暂无ROM发布，敬请期待...</p>
+                <p style="font-size:14px;color:#b0b0b0;margin:0;" data-en="Stay tuned for updates!">持续关注，精彩即将来袭</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-logo-side">
+                    <img src="../favicon.ico" alt="没有心科技" class="footer-logo-img">
+                    <span class="footer-logo-name" data-en="NoHeart Tech">没有心科技</span>
+                </div>
+                <div class="footer-links-side">
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="Navigation">导航</h4>
+                        <a href="../index.html" data-en="Home">首页</a>
+                        <a href="index.html" data-en="ROM">ROM发布</a>
+                        <a href="../tools/index.html" data-en="Wuxin Tools">无心工具箱</a>
+                        <a href="#" data-en="Community">社区论坛</a>
+                        <a href="../docs/index.html" data-en="Tutorial">教程文档</a>
+                        <a href="../contact.html" data-en="Contact">联系我们</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="NoHeart Tech">没有心科技</h4>
+                        <a href="https://wx.ysyplat.cn/rom" target="_blank" rel="noopener" data-en="ROM Releases">ROM发布</a>
+                        <a href="https://wx.ysyplat.cn/tools" target="_blank" rel="noopener" data-en="Wuxin Tools">无心工具箱</a>
+                        <a href="#" target="_blank" rel="noopener" data-en="Community">社区论坛</a>
+                        <a href="../contact.html" target="_blank" rel="noopener" data-en="Contact Us">联系我们</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="Links">友情链接</h4>
+                        <a href="https://www.kybll.cn/" target="_blank" rel="noopener" data-en="KYBLL">空雨不流泪</a>
+                        <a href="https://www.ysyplat.com/" target="_blank" rel="noopener" data-en="YSYPLAT">屿笙云平台</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright" data-en="&copy; 2025-2026 NoHeart Tech. All Rights Reserved.">&copy; 2025-2026 没有心科技. All Rights Reserved.</p>
+                <div class="footer-beian" data-en=" ">
+                    <a class="footer-icp" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">浙ICP备2023036308号-9</a>
+                    <a class="footer-gabeian" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33019202003173" target="_blank" rel="noopener">
+                        <img src="../static/images/gabeian.png" alt="" class="gabeian-icon">浙公网安备33019202003173号
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../static/js/theme.js"></script>
+    <script src="../static/js/page-transition.js"></script>
+    <script src="../static/js/animations.js"></script>
+    <script src="../static/js/img-protect.js"></script>
+    <script src="../static/js/config.js"></script>
+    <script src="../static/js/i18n.js"></script>
+</body>
+</html>

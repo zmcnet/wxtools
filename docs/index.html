@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico">
+    <title data-en="Tutorials | NoHeart Tech">教程文档 | 没有心科技</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/animations.css">
+    <style>
+        /* ===== VuePress 风格文档 ===== */
+        .vp-page {
+            display: flex;
+            min-height: calc(100vh - 60px);
+            background: #fff;
+        }
+        body.dark-mode .vp-page {
+            background: #0d1117;
+        }
+
+        /* ===== 侧边栏 ===== */
+        .vp-sidebar {
+            width: 260px;
+            flex-shrink: 0;
+            border-right: 1px solid #e8ecf1;
+            padding: 24px 0 48px;
+            position: sticky;
+            top: 60px;
+            align-self: flex-start;
+            max-height: calc(100vh - 60px);
+            overflow-y: auto;
+            background: #fff;
+        }
+        body.dark-mode .vp-sidebar {
+            border-right-color: #2a3140;
+            background: #0d1117;
+        }
+        .vp-sidebar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .vp-sidebar::-webkit-scrollbar-thumb {
+            background: #d0d8e0;
+            border-radius: 2px;
+        }
+        body.dark-mode .vp-sidebar::-webkit-scrollbar-thumb {
+            background: #2a3140;
+        }
+
+        .vp-sidebar-group {
+            margin-bottom: 4px;
+        }
+        .vp-sidebar-group-title {
+            padding: 8px 24px 8px 20px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: default;
+        }
+        body.dark-mode .vp-sidebar-group-title {
+            color: #64748b;
+        }
+        .vp-sidebar-link {
+            display: block;
+            padding: 8px 24px 8px 20px;
+            font-size: 14px;
+            color: #5a6a7a;
+            text-decoration: none;
+            border-left: 3px solid transparent;
+            transition: all 0.15s ease;
+            position: relative;
+        }
+        .vp-sidebar-link:hover {
+            color: #1a73e8;
+        }
+        body.dark-mode .vp-sidebar-link:hover {
+            color: #4da3ff;
+        }
+        .vp-sidebar-link.active {
+            color: #1a73e8;
+            font-weight: 600;
+            border-left-color: #1a73e8;
+            background: #f0f7ff;
+        }
+        body.dark-mode .vp-sidebar-link.active {
+            color: #4da3ff;
+            border-left-color: #4da3ff;
+            background: #0d1b3a;
+        }
+        .vp-sidebar-link-sub {
+            padding-left: 36px;
+            font-size: 13px;
+        }
+
+        /* ===== 内容区 ===== */
+        .vp-content {
+            flex: 1;
+            min-width: 0;
+            max-width: 860px;
+            padding: 48px 64px 80px;
+        }
+        @media (max-width: 1100px) {
+            .vp-content {
+                padding: 40px 40px 64px;
+            }
+        }
+        @media (max-width: 850px) {
+            .vp-sidebar {
+                display: none;
+            }
+            .vp-content {
+                padding: 32px 24px 48px;
+                max-width: 100%;
+            }
+        }
+
+        /* ===== 文章头部 ===== */
+        .vp-article-header {
+            margin-bottom: 40px;
+        }
+        .vp-breadcrumb {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-bottom: 12px;
+        }
+        .vp-breadcrumb a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        .vp-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        body.dark-mode .vp-breadcrumb a {
+            color: #4da3ff;
+        }
+        .vp-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1a2332;
+            margin: 0 0 8px;
+            letter-spacing: -0.02em;
+        }
+        body.dark-mode .vp-title {
+            color: #e2e8f0;
+        }
+        .vp-desc {
+            font-size: 16px;
+            color: #6b7280;
+            margin: 0;
+            line-height: 1.6;
+        }
+        body.dark-mode .vp-desc {
+            color: #8896a6;
+        }
+
+        /* ===== 文章内容 ===== */
+        .vp-article {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #3a4556;
+        }
+        body.dark-mode .vp-article {
+            color: #b0bcc8;
+        }
+        .vp-article h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a2332;
+            margin: 48px 0 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e8ecf1;
+        }
+        body.dark-mode .vp-article h2 {
+            color: #e2e8f0;
+            border-bottom-color: #2a3140;
+        }
+        .vp-article h3 {
+            font-size: 19px;
+            font-weight: 600;
+            color: #1a2332;
+            margin: 32px 0 12px;
+        }
+        body.dark-mode .vp-article h3 {
+            color: #e2e8f0;
+        }
+        .vp-article h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a2332;
+            margin: 24px 0 8px;
+        }
+        body.dark-mode .vp-article h4 {
+            color: #e2e8f0;
+        }
+        .vp-article p {
+            margin: 0 0 16px;
+        }
+        .vp-article ul, .vp-article ol {
+            padding-left: 24px;
+            margin: 0 0 16px;
+        }
+        .vp-article li {
+            margin-bottom: 6px;
+        }
+        .vp-article strong {
+            color: #1a2332;
+            font-weight: 600;
+        }
+        body.dark-mode .vp-article strong {
+            color: #e2e8f0;
+        }
+        .vp-article a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        .vp-article a:hover {
+            text-decoration: underline;
+        }
+        body.dark-mode .vp-article a {
+            color: #4da3ff;
+        }
+
+        /* ===== 内联代码 ===== */
+        .vp-article code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #e11d48;
+            font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+        }
+        body.dark-mode .vp-article code {
+            background: #1e2530;
+            color: #f472b6;
+        }
+
+        /* ===== 代码块 ===== */
+        .vp-code-block {
+            position: relative;
+            margin: 0 0 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e8ecf1;
+        }
+        body.dark-mode .vp-code-block {
+            border-color: #2a3140;
+        }
+        .vp-code-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 16px;
+            background: #f8fafc;
+            border-bottom: 1px solid #e8ecf1;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        body.dark-mode .vp-code-header {
+            background: #161b22;
+            border-bottom-color: #2a3140;
+            color: #64748b;
+        }
+        .vp-code-lang {
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .vp-code-copy {
+            cursor: pointer;
+            padding: 2px 8px;
+            border-radius: 4px;
+            transition: background 0.15s;
+        }
+        .vp-code-copy:hover {
+            background: #e8ecf1;
+        }
+        body.dark-mode .vp-code-copy:hover {
+            background: #2a3140;
+        }
+        .vp-code-block pre {
+            margin: 0;
+            padding: 16px 20px;
+            background: #1e293b;
+            color: #e2e8f0;
+            overflow-x: auto;
+            font-size: 13px;
+            line-height: 1.7;
+            font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+        }
+        body.dark-mode .vp-code-block pre {
+            background: #0d1117;
+        }
+        .vp-code-block pre code {
+            background: none;
+            padding: 0;
+            color: inherit;
+            font-size: inherit;
+        }
+
+        /* ===== 提示框 ===== */
+        .vp-tip {
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 0 0 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            border: 1px solid;
+        }
+        .vp-tip-info {
+            background: #eff6ff;
+            border-color: #bfdbfe;
+            color: #1e40af;
+        }
+        body.dark-mode .vp-tip-info {
+            background: #0d1b3e;
+            border-color: #1e3a5f;
+            color: #93c5fd;
+        }
+        .vp-tip-tip {
+            background: #f0fdf4;
+            border-color: #bbf7d0;
+            color: #166534;
+        }
+        body.dark-mode .vp-tip-tip {
+            background: #0d1e14;
+            border-color: #1a3a24;
+            color: #86efac;
+        }
+        .vp-tip-warn {
+            background: #fffbeb;
+            border-color: #fde68a;
+            color: #92400e;
+        }
+        body.dark-mode .vp-tip-warn {
+            background: #2a1f0a;
+            border-color: #3a2f1a;
+            color: #fcd34d;
+        }
+        .vp-tip-danger {
+            background: #fef2f2;
+            border-color: #fecaca;
+            color: #991b1b;
+        }
+        body.dark-mode .vp-tip-danger {
+            background: #2a0f0f;
+            border-color: #3a1a1a;
+            color: #fca5a5;
+        }
+        .vp-tip-title {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        /* ===== 表格 ===== */
+        .vp-table-wrap {
+            overflow-x: auto;
+            margin: 0 0 20px;
+        }
+        .vp-table-wrap table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .vp-table-wrap th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #1a2332;
+            text-align: left;
+            padding: 12px 16px;
+            border: 1px solid #e8ecf1;
+        }
+        body.dark-mode .vp-table-wrap th {
+            background: #161b22;
+            color: #e2e8f0;
+            border-color: #2a3140;
+        }
+        .vp-table-wrap td {
+            padding: 10px 16px;
+            border: 1px solid #e8ecf1;
+            color: #3a4556;
+        }
+        body.dark-mode .vp-table-wrap td {
+            border-color: #2a3140;
+            color: #b0bcc8;
+        }
+        .vp-table-wrap tr:nth-child(even) td {
+            background: #f8fafc;
+        }
+        body.dark-mode .vp-table-wrap tr:nth-child(even) td {
+            background: #0d1117;
+        }
+
+        /* ===== 目录锚点 ===== */
+        .vp-header-anchor {
+            opacity: 0;
+            margin-left: 6px;
+            font-size: 14px;
+            color: #1a73e8;
+            text-decoration: none;
+            transition: opacity 0.15s;
+        }
+        .vp-article h2:hover .vp-header-anchor,
+        .vp-article h3:hover .vp-header-anchor {
+            opacity: 1;
+        }
+        body.dark-mode .vp-header-anchor {
+            color: #4da3ff;
+        }
+
+        /* ===== 分页导航 ===== */
+        .vp-page-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 64px;
+            padding-top: 24px;
+            border-top: 1px solid #e8ecf1;
+        }
+        body.dark-mode .vp-page-nav {
+            border-top-color: #2a3140;
+        }
+        .vp-page-nav a {
+            font-size: 14px;
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .vp-page-nav a:hover {
+            text-decoration: underline;
+        }
+        body.dark-mode .vp-page-nav a {
+            color: #4da3ff;
+        }
+        .vp-page-nav .nav-prev {
+            text-align: left;
+        }
+        .vp-page-nav .nav-next {
+            text-align: right;
+        }
+        .vp-page-nav .nav-label {
+            font-size: 12px;
+            color: #94a3b8;
+            font-weight: 400;
+        }
+
+        /* ===== 移动端侧边栏按钮 ===== */
+        .vp-mobile-sidebar-btn {
+            display: none;
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 997;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #1a73e8;
+            color: #fff;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(26, 115, 232, 0.3);
+            transition: transform 0.2s;
+        }
+        .vp-mobile-sidebar-btn:hover {
+            transform: scale(1.1);
+        }
+        body.dark-mode .vp-mobile-sidebar-btn {
+            background: #4da3ff;
+        }
+        @media (max-width: 850px) {
+            .vp-mobile-sidebar-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        /* ===== 移动端侧边栏抽屉 ===== */
+        .vp-drawer-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 9998;
+        }
+        .vp-drawer-overlay.active {
+            display: block;
+        }
+        .vp-drawer {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100%;
+            background: #fff;
+            z-index: 9999;
+            overflow-y: auto;
+            padding: 20px 0;
+            transition: left 0.3s ease;
+            box-shadow: 4px 0 16px rgba(0,0,0,0.1);
+        }
+        body.dark-mode .vp-drawer {
+            background: #0d1117;
+        }
+        .vp-drawer.open {
+            left: 0;
+        }
+        .vp-drawer-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: none;
+            font-size: 24px;
+            color: #94a3b8;
+            cursor: pointer;
+        }
+        .vp-drawer .vp-sidebar-group-title {
+            padding-right: 48px;
+        }
+        .vp-drawer .vp-sidebar-link {
+            padding-right: 48px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="../favicon.ico" alt="没有心科技" class="logo-icon">
+                <a href="../index.html" class="logo-text" data-en="NoHeart Tech">没有心科技</a>
+            </div>
+            <div class="menu-section">
+                <nav class="main-menu">
+                    <a href="../index.html" class="menu-item" data-en="Home">首页</a>
+                    <a href="../rom/index.html" class="menu-item" data-en="ROM">ROM发布</a>
+                    <a href="../tools/index.html" class="menu-item" data-en="Wuxin Tools">无心工具箱</a>
+                    <a href="#" class="menu-item" data-en="Community">社区论坛</a>
+                    <a href="index.html" class="menu-item active" data-en="Tutorial">教程文档</a>
+                    <a href="../contact.html" class="menu-item" data-en="Contact">联系我们</a>
+                </nav>
+                <div class="custom-functions">
+                    <button id="theme-toggle" class="theme-toggle btn-press" aria-label="切换主题">
+                        <span class="theme-icon">🌙</span>
+                        <span class="theme-text" data-en="Light">主题</span>
+                    </button>
+                    <button id="hamburger-btn" class="hamburger-btn btn-press" aria-label="打开菜单">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 移动端侧滑菜单 -->
+    <div id="menu-overlay" class="menu-overlay"></div>
+    <nav id="mobile-menu" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title" data-en="Menu">菜单</span>
+            <button id="mobile-menu-close" class="mobile-menu-close btn-press" aria-label="关闭菜单">&times;</button>
+        </div>
+        <a href="../index.html" class="mobile-menu-item" data-en="Home">首页</a>
+        <a href="../rom/index.html" class="mobile-menu-item" data-en="ROM">ROM发布</a>
+        <a href="../tools/index.html" class="mobile-menu-item" data-en="Wuxin Tools">无心工具箱</a>
+        <a href="#" class="mobile-menu-item" data-en="Community">社区论坛</a>
+        <a href="index.html" class="mobile-menu-item active" data-en="Tutorial">教程文档</a>
+        <a href="../contact.html" class="mobile-menu-item" data-en="Contact">联系我们</a>
+        <div class="mobile-menu-divider"></div>
+        <button id="mobile-theme-toggle" class="mobile-theme-toggle btn-press">
+            <span class="theme-icon">🌙</span>
+            <span class="theme-text" data-en="Light">切换主题</span>
+        </button>
+    </nav>
+
+    <div class="vp-page">
+        <!-- 侧边栏 -->
+        <aside class="vp-sidebar" id="vp-sidebar">
+            <div class="vp-sidebar-group">
+                <div class="vp-sidebar-group-title" data-en="Getting Started">快速开始</div>
+                <a href="#introduction" class="vp-sidebar-link active" data-en="Introduction">简介</a>
+                <a href="#installation" class="vp-sidebar-link" data-en="Installation">安装指南</a>
+                <a href="#quickstart" class="vp-sidebar-link" data-en="Quick Start">快速上手</a>
+            </div>
+            <div class="vp-sidebar-group">
+                <div class="vp-sidebar-group-title" data-en="Basic Usage">基础使用</div>
+                <a href="#device-connection" class="vp-sidebar-link" data-en="Device Connection">设备连接</a>
+                <a href="#adb-commands" class="vp-sidebar-link" data-en="ADB Commands">ADB 命令</a>
+                <a href="#fastboot-commands" class="vp-sidebar-link" data-en="Fastboot Commands">Fastboot 命令</a>
+                <a href="#file-management" class="vp-sidebar-link" data-en="File Management">文件管理</a>
+            </div>
+            <div class="vp-sidebar-group">
+                <div class="vp-sidebar-group-title" data-en="Advanced">进阶指南</div>
+                <a href="#partition" class="vp-sidebar-link" data-en="Partition Management">分区管理</a>
+                <a href="#flashing" class="vp-sidebar-link" data-en="Flashing Guide">刷机指导</a>
+                <a href="#dynamic-partition" class="vp-sidebar-link" data-en="Dynamic Partitions">动态分区</a>
+                <a href="#payload-dumper" class="vp-sidebar-link" data-en="Payload Dumper">Payload 提取</a>
+            </div>
+            <div class="vp-sidebar-group">
+                <div class="vp-sidebar-group-title" data-en="Reference">参考</div>
+                <a href="#faq" class="vp-sidebar-link" data-en="FAQ">常见问题</a>
+                <a href="#troubleshooting" class="vp-sidebar-link" data-en="Troubleshooting">故障排除</a>
+                <a href="#changelog" class="vp-sidebar-link" data-en="Changelog">更新日志</a>
+            </div>
+        </aside>
+
+        <!-- 内容 -->
+        <main class="vp-content">
+            <article class="vp-article-header">
+                <div class="vp-breadcrumb">
+                    <a href="../index.html" data-en="Home">首页</a>
+                    <span> / </span>
+                    <span data-en="Tutorials">教程文档</span>
+                </div>
+                <h1 class="vp-title" data-en="Tutorial Documentation">教程文档</h1>
+                <p class="vp-desc" data-en="Comprehensive guides and tutorials for Wuxin Tools and Android development.">无心工具箱与 Android 开发的全面指南和教程。</p>
+            </article>
+
+            <article class="vp-article">
+                <!-- 简介 -->
+                <h2 id="introduction">
+                    简介
+                    <a href="#introduction" class="vp-header-anchor">#</a>
+                </h2>
+                <p data-en="Welcome to the NoHeart Tech tutorial documentation. Here you will find detailed guides on using Wuxin Tools, from basic device connection to advanced partition management and flashing operations.">欢迎来到没有心科技教程文档。在这里您将找到关于无心工具箱的详细使用指南，从基本的设备连接，到高级的分区管理和刷机操作。</p>
+                <p data-en="Wuxin Tools is a powerful Android debugging and flashing toolbox that supports all common ADB and Fastboot commands. Whether you are a beginner or an experienced developer, these tutorials will help you make the most of its features.">无心工具箱是一款功能强大的 Android 调试与刷机工具箱，支持所有常见的 ADB 和 Fastboot 命令。无论您是初学者还是有经验的开发者，本教程都能帮助您充分发挥其功能。</p>
+
+                <div class="vp-tip vp-tip-info">
+                    <div class="vp-tip-title" data-en="💡 Before You Start">💡 开始之前</div>
+                    <span data-en="Make sure your device has USB debugging enabled and the necessary drivers installed. Refer to the Installation Guide for details.">请确保您的设备已开启 USB 调试并安装了必要的驱动。详情请参阅安装指南。</span>
+                </div>
+
+                <!-- 安装指南 -->
+                <h2 id="installation">
+                    安装指南
+                    <a href="#installation" class="vp-header-anchor">#</a>
+                </h2>
+                <p data-en="Wuxin Tools is available for Windows platform. Follow the steps below to get started.">无心工具箱目前支持 Windows 平台。按照以下步骤开始使用。</p>
+
+                <h3 data-en="System Requirements">系统要求</h3>
+                <ul>
+                    <li data-en="Operating System: Windows 10 / Windows 11 (64-bit)">操作系统：Windows 10 / Windows 11（64位）</li>
+                    <li data-en="RAM: 4GB or more">内存：4GB 及以上</li>
+                    <li data-en="Storage: 500MB free space">存储：500MB 可用空间</li>
+                    <li data-en="USB port for device connection">USB 接口用于连接设备</li>
+                </ul>
+
+                <h3 data-en="Download and Install">下载安装</h3>
+                <ol>
+                    <li data-en="Download the latest version from the Download Center.">从下载中心下载最新版本。</li>
+                    <li data-en="Extract the compressed package to any directory.">解压压缩包到任意目录。</li>
+                    <li data-en="Run WuxinTools.exe as administrator.">以管理员身份运行 WuxinTools.exe。</li>
+                </ol>
+
+                <div class="vp-code-block">
+                    <div class="vp-code-header">
+                        <span class="vp-code-lang">BASH</span>
+                        <span class="vp-code-copy" data-en="Copy">复制</span>
+                    </div>
+                    <pre><code># 解压并运行
+cd WuxinTools
+.\WuxinTools.exe</code></pre>
+                </div>
+
+                <!-- 快速上手 -->
+                <h2 id="quickstart">
+                    快速上手
+                    <a href="#quickstart" class="vp-header-anchor">#</a>
+                </h2>
+                <p data-en="Once installed, follow these steps to quickly get started with Wuxin Tools.">安装完成后，按以下步骤快速上手无心工具箱。</p>
+                <ol>
+                    <li data-en="Connect your Android device via USB cable.">通过 USB 数据线连接 Android 设备。</li>
+                    <li data-en="Enable USB debugging on your device (Settings → Developer Options → USB Debugging).">在设备上开启 USB 调试（设置 → 开发者选项 → USB 调试）。</li>
+                    <li data-en="Launch Wuxin Tools — it will automatically detect your device.">启动无心工具箱，它将自动检测您的设备。</li>
+                    <li data-en="Use the main interface to execute various commands.">使用主界面执行各类命令。</li>
+                </ol>
+
+                <div class="vp-tip vp-tip-tip">
+                    <div class="vp-tip-title" data-en="✅ Tip">✅ 提示</div>
+                    <span data-en="If your device is not detected, try reconnecting the USB cable or reinstalling the drivers.">如果设备未检测到，请尝试重新连接 USB 线或重新安装驱动。</span>
+                </div>
+
+                <!-- 设备连接 -->
+                <h2 id="device-connection">
+                    设备连接
+                    <a href="#device-connection" class="vp-header-anchor">#</a>
+                </h2>
+                <p data-en="Wuxin Tools supports both USB and wireless connections. Here's how to connect your device.">无心工具箱支持 USB 和无线两种连接方式。以下是连接设备的方法。</p>
+
+                <h3 data-en="USB Connection">USB 连接</h3>
+                <ol>
+                    <li data-en="Connect your device via USB cable.">使用 USB 线连接设备。</li>
+                    <li data-en="On your device, allow USB debugging when prompted.">在设备上允许 USB 调试授权。</li>
+                    <li data-en="Wuxin Tools will display the device information on the dashboard.">无心工具箱将在仪表盘显示设备信息。</li>
+                </ol>
+
+                <h3 data-en="Wireless Connection (ADB over Wi-Fi)">无线连接（ADB over Wi-Fi）</h3>
+                <ol>
+                    <li data-en="Ensure your device and computer are on the same network.">确保设备和电脑在同一网络下。</li>
+                    <li data-en="Connect your device via USB first, then run:">先通过 USB 连接设备，然后运行：</li>
+                </ol>
+
+                <div class="vp-code-block">
+                    <div class="vp-code-header">
+                        <span class="vp-code-lang">BASH</span>
+                        <span class="vp-code-copy" data-en="Copy">复制</span>
+                    </div>
+                    <pre><code>adb tcpip 5555
+adb connect 192.168.1.100:5555</code></pre>
+                </div>
+
+                <p data-en="Replace 192.168.1.100 with your device's IP address. You can find it in Wi-Fi settings.">将 192.168.1.100 替换为设备的 IP 地址，可在 Wi-Fi 设置中查看。</p>
+
+                <!-- ADB 命令 -->
+                <h2 id="adb-commands">
+                    ADB 命令
+                    <a href="#adb-commands" class="vp-header-anchor">#</a>
+                </h2>
+                <p data-en="Wuxin Tools provides a rich set of ADB commands. Here are some commonly used ones.">无心工具箱提供了丰富的 ADB 命令。以下是一些常用命令。</p>
+
+                <div class="vp-table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-en="Command">命令</th>
+                                <th data-en="Description">说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>adb devices</code></td>
+                                <td data-en="List connected devices">列出已连接的设备</td>
+                            </tr>
+                            <tr>
+                                <td><code>adb shell</code></td>
+                                <td data-en="Enter device shell">进入设备 shell</td>
+                            </tr>
+                            <tr>
+                                <td><code>adb reboot</code></td>
+                                <td data-en="Reboot device">重启设备</td>
+                            </tr>
+                            <tr>
+                                <td><code>adb reboot bootloader</code></td>
+                                <td data-en="Reboot to bootloader">重启到 Bootloader</td>
+                            </tr>
+                            <tr>
+                                <td><code>adb reboot recovery</code></td>
+                                <td data-en="Reboot to recovery">重启到 Recovery</td>
+                            </tr>
+                            <tr>
+                                <td><code>adb install &lt;apk&gt;</code></td>
+                                <td data-en="Install APK">安装 APK</td>
+                            </tr>
+                            <tr>
+                                <td><code>adb push &lt;local&gt; &lt;remote&gt;</code></td>
+                                <td data-en="Push file to device">推送文件到设备</td>
+                            </tr>
+                            <tr>
+                                <td><code>adb pull &lt;remote&gt; &lt;local&gt;</code></td>
+                                <td data-en="Pull file from device">从设备拉取文件</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Fastboot 命令 -->
+                <h2 id="fastboot-commands">
+                    Fastboot 命令
+                    <a href="#fastboot-commands" class="vp-header-anchor">#</a>
+                </h2>
+                <p data-en="Fastboot mode is used for low-level device operations. Common commands include:">Fastboot 模式用于底层设备操作。常用命令包括：</p>
+
+                <div class="vp-table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th data-en="Command">命令</th>
+                                <th data-en="Description">说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>fastboot devices</code></td>
+                                <td data-en="List devices in fastboot">列出 Fastboot 设备</td>
+                            </tr>
+                            <tr>
+                                <td><code>fastboot flash &lt;partition&gt; &lt;img&gt;</code></td>
+                                <td data-en="Flash a partition">刷写分区</td>
+                            </tr>
+                            <tr>
+                                <td><code>fastboot boot &lt;img&gt;</code></td>
+                                <td data-en="Boot a temporary image">临时启动镜像</td>
+                            </tr>
+                            <tr>
+                                <td><code>fastboot reboot</code></td>
+                                <td data-en="Reboot device">重启设备</td>
+                            </tr>
+                            <tr>
+                                <td><code>fastboot getvar all</code></td>
+                                <td data-en="Get device variables">获取设备变量</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 分区管理 -->
+                <h2 id="partition">
+                    分区管理
+                    <a href="#partition" class="vp-header-anchor">#</a>
+                </h2>
+                <p data-en="Wuxin Tools provides an intuitive partition management interface. You can view, backup, and restore device partitions with ease.">无心工具箱提供了直观的分区管理界面，您可以轻松查看、备份和恢复设备分区。</p>
+
+                <h3 data-en="Backup a Partition">备份分区</h3>
+                <ol>
+                    <li data-en="Select the partition you want to back up from the list.">从列表中选择要备份的分区。</li>
+                    <li data-en="Click the 'Backup' button.">点击"备份"按钮。</li>
+                    <li data-en="Choose a save location and confirm.">选择保存位置并确认。</li>
+                </ol>
+
+                <h3 data-en="Restore a Partition">恢复分区</h3>
+                <ol>
+                    <li data-en="Click the 'Restore' button in the partition management interface.">在分区管理界面点击"恢复"按钮。</li>
+                    <li data-en="Select the backup image file.">选择备份的镜像文件。</li>
+                    <li data-en="Confirm the operation to start restoring.">确认操作开始恢复。</li>
+                </ol>
+
+                <div class="vp-tip vp-tip-warn">
+                    <div class="vp-tip-title" data-en="⚠️ Warning">⚠️ 警告</div>
+                    <span data-en="Partition operations can be dangerous. Incorrect operations may cause the device to fail to boot. Make sure to back up important data before proceeding.">分区操作具有一定风险，操作不当可能导致设备无法启动。请确保提前备份重要数据。</span>
+                </div>
+
+                <!-- 刷机指导 -->
+                <h2 id="flashing">
+                    刷机指导
+                    <a href="#flashing" class="vp-header-anchor">#</a>
+                </h2>
+                <p data-en="Flashing a ROM is a common operation for Android enthusiasts. Follow these steps to flash your device safely.">刷写 ROM 是 Android 爱好者的常见操作。按以下步骤安全刷机。</p>
+
+                <ol>
+                    <li data-en="Download the ROM package for your device model.">下载您设备型号对应的 ROM 包。</li>
+                    <li data-en="Back up important data.">备份重要数据。</li>
+                    <li data-en="Boot your device into fastboot mode.">将设备重启到 Fastboot 模式。</li>
+                    <li data-en="Use the flashing tool in Wuxin Tools to flash the ROM.">使用无心工具箱中的刷机工具刷写 ROM。</li>
+                    <li data-en="After flashing, reboot the device.">刷写完成后重启设备。</li>
+                </ol>
+
+                <div class="vp-code-block">
+                    <div class="vp-code-header">
+                        <span class="vp-code-lang">BASH</span>
+                        <span class="vp-code-copy" data-en="Copy">复制</span>
+                    </div>
+                    <pre><code># 刷写 boot 分区示例
+fastboot flash boot boot.img
+
+# 刷写系统分区
+fastboot flash system system.img
+
+# 刷写完成后重启
+fastboot reboot</code></pre>
+                </div>
+
+                <!-- 动态分区 -->
+                <h2 id="dynamic-partition">
+                    动态分区
+                    <a href="#dynamic-partition" class="vp-header-anchor">#</a>
+                </h2>
+                <p data-en="Dynamic partitions are a new feature introduced in Android 10 that allows flexible partition management. Wuxin Tools fully supports dynamic partition operations.">动态分区是 Android 10 引入的新特性，允许灵活的分区管理。无心工具箱完全支持动态分区操作。</p>
+
+                <p data-en="With dynamic partition support, you can:">通过动态分区支持，您可以：</p>
+                <ul>
+                    <li data-en="View the current dynamic partition layout">查看当前动态分区布局</li>
+                    <li data-en="Resize dynamic partitions">调整动态分区大小</li>
+                    <li data-en="Create and delete dynamic partitions">创建和删除动态分区</li>
+                    <li data-en="Flash images to dynamic partitions">刷写镜像到动态分区</li>
+                </ul>
+
+                <div class="vp-tip vp-tip-info">
+                    <div class="vp-tip-title" data-en="📖 Learn More">📖 了解更多</div>
+                    <span data-en="Dynamic partition management is a complex topic. Refer to the detailed documentation in Wuxin Tools for more information.">动态分区管理是一个复杂的话题，请参考无心工具箱中的详细文档了解更多。</span>
+                </div>
+
+                <!-- FAQ -->
+                <h2 id="faq">
+                    常见问题
+                    <a href="#faq" class="vp-header-anchor">#</a>
+                </h2>
+
+                <h3 data-en="Q: Device not detected?">问：设备无法被检测到？</h3>
+                <p data-en="A: Make sure USB debugging is enabled on your device. Try reconnecting the USB cable or using a different cable. If the issue persists, reinstall the device drivers.">答：请确保设备已开启 USB 调试。尝试重新连接 USB 线或更换数据线。如果问题仍然存在，请重新安装设备驱动。</p>
+
+                <h3 data-en="Q: ADB commands not working?">问：ADB 命令无法执行？</h3>
+                <p data-en="A: Make sure Wuxin Tools is running with administrator privileges. Some commands require elevated permissions to execute properly.">答：确保无心工具箱以管理员权限运行。部分命令需要提升权限才能正常执行。</p>
+
+                <h3 data-en="Q: Can I use Wuxin Tools on Linux/Mac?">问：无心工具箱是否支持 Linux/Mac？</h3>
+                <p data-en="A: Currently, Wuxin Tools is only available for Windows. Linux and Mac versions are under development.">答：目前无心工具箱仅支持 Windows 平台。Linux 和 Mac 版本正在开发中。</p>
+
+                <!-- 故障排除 -->
+                <h2 id="troubleshooting">
+                    故障排除
+                    <a href="#troubleshooting" class="vp-header-anchor">#</a>
+                </h2>
+                <p data-en="If you encounter issues while using Wuxin Tools, try the following solutions:">如果您在使用无心工具箱时遇到问题，请尝试以下解决方案：</p>
+
+                <ul>
+                    <li data-en="Restart Wuxin Tools and reconnect your device.">重启无心工具箱并重新连接设备。</li>
+                    <li data-en="Check for the latest version and update if needed.">检查最新版本，必要时进行更新。</li>
+                    <li data-en="Visit our community forum for help and support.">访问我们的社区论坛寻求帮助。</li>
+                    <li data-en="Contact us through the available channels.">通过联系我们页面提供的渠道与我们取得联系。</li>
+                </ul>
+
+                <div class="vp-tip vp-tip-danger">
+                    <div class="vp-tip-title" data-en="🚨 Important">🚨 重要</div>
+                    <span data-en="If your device becomes unresponsive or fails to boot after an operation, try booting into recovery mode and performing a factory reset, or reflash the stock ROM.">如果操作后设备无法正常启动，请尝试进入 Recovery 模式进行恢复出厂设置，或重新刷写官方 ROM。</span>
+                </div>
+
+                <!-- 分页导航 -->
+                <div class="vp-page-nav">
+                    <a href="../index.html" class="nav-prev">
+                        <div class="nav-label" data-en="Previous">上一页</div>
+                        <span data-en="Back to Home">返回首页</span>
+                    </a>
+                    <a href="../tools/doc/index.html" class="nav-next">
+                        <div class="nav-label" data-en="Next">下一页</div>
+                        <span data-en="Wuxin Tools Docs">无心工具箱文档</span>
+                    </a>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- 移动端侧边栏按钮 + 抽屉 -->
+    <button class="vp-mobile-sidebar-btn" id="vp-sidebar-btn" aria-label="Toggle Sidebar">☰</button>
+    <div class="vp-drawer-overlay" id="vp-drawer-overlay"></div>
+    <div class="vp-drawer" id="vp-drawer">
+        <button class="vp-drawer-close" id="vp-drawer-close">&times;</button>
+        <div class="vp-sidebar-group">
+            <div class="vp-sidebar-group-title" data-en="Getting Started">快速开始</div>
+            <a href="#introduction" class="vp-sidebar-link active" data-en="Introduction">简介</a>
+            <a href="#installation" class="vp-sidebar-link" data-en="Installation">安装指南</a>
+            <a href="#quickstart" class="vp-sidebar-link" data-en="Quick Start">快速上手</a>
+        </div>
+        <div class="vp-sidebar-group">
+            <div class="vp-sidebar-group-title" data-en="Basic Usage">基础使用</div>
+            <a href="#device-connection" class="vp-sidebar-link" data-en="Device Connection">设备连接</a>
+            <a href="#adb-commands" class="vp-sidebar-link" data-en="ADB Commands">ADB 命令</a>
+            <a href="#fastboot-commands" class="vp-sidebar-link" data-en="Fastboot Commands">Fastboot 命令</a>
+            <a href="#file-management" class="vp-sidebar-link" data-en="File Management">文件管理</a>
+        </div>
+        <div class="vp-sidebar-group">
+            <div class="vp-sidebar-group-title" data-en="Advanced">进阶指南</div>
+            <a href="#partition" class="vp-sidebar-link" data-en="Partition Management">分区管理</a>
+            <a href="#flashing" class="vp-sidebar-link" data-en="Flashing Guide">刷机指导</a>
+            <a href="#dynamic-partition" class="vp-sidebar-link" data-en="Dynamic Partitions">动态分区</a>
+            <a href="#payload-dumper" class="vp-sidebar-link" data-en="Payload Dumper">Payload 提取</a>
+        </div>
+        <div class="vp-sidebar-group">
+            <div class="vp-sidebar-group-title" data-en="Reference">参考</div>
+            <a href="#faq" class="vp-sidebar-link" data-en="FAQ">常见问题</a>
+            <a href="#troubleshooting" class="vp-sidebar-link" data-en="Troubleshooting">故障排除</a>
+            <a href="#changelog" class="vp-sidebar-link" data-en="Changelog">更新日志</a>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-logo-side">
+                    <img src="../favicon.ico" alt="没有心科技" class="footer-logo-img">
+                    <span class="footer-logo-name" data-en="NoHeart Tech">没有心科技</span>
+                </div>
+                <div class="footer-links-side">
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="Navigation">导航</h4>
+                        <a href="../index.html" data-en="Home">首页</a>
+                        <a href="../rom/index.html" data-en="ROM">ROM发布</a>
+                        <a href="../tools/index.html" data-en="Wuxin Tools">无心工具箱</a>
+                        <a href="#" data-en="Community">社区论坛</a>
+                        <a href="index.html" data-en="Tutorial">教程文档</a>
+                        <a href="../contact.html" data-en="Contact">联系我们</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="NoHeart Tech">没有心科技</h4>
+                        <a href="https://wx.ysyplat.cn/rom" target="_blank" rel="noopener" data-en="ROM Releases">ROM发布</a>
+                        <a href="https://wx.ysyplat.cn/tools" target="_blank" rel="noopener" data-en="Wuxin Tools">无心工具箱</a>
+                        <a href="../contact.html" target="_blank" rel="noopener" data-en="Contact Us">联系我们</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="Links">友情链接</h4>
+                        <a href="https://www.kybll.cn/" target="_blank" rel="noopener" data-en="KYBLL">空雨不流泪</a>
+                        <a href="https://www.ysyplat.com/" target="_blank" rel="noopener" data-en="YSYPLAT">屿笙云平台</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright" data-en="&copy; 2025-2026 NoHeart Tech. All Rights Reserved.">&copy; 2025-2026 没有心科技. All Rights Reserved.</p>
+                <div class="footer-beian" data-en=" ">
+                    <a class="footer-icp" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">浙ICP备2023036308号-9</a>
+                    <a class="footer-gabeian" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33019202003173" target="_blank" rel="noopener">
+                        <img src="../static/images/gabeian.png" alt="" class="gabeian-icon">浙公网安备33019202003173号
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../static/js/config.js"></script>
+    <script src="../static/js/i18n.js"></script>
+    <script src="../static/js/theme.js"></script>
+    <script src="../static/js/page-transition.js"></script>
+    <script src="../static/js/animations.js"></script>
+    <script>
+        // 移动端侧边栏抽屉
+        (function() {
+            var btn = document.getElementById('vp-sidebar-btn');
+            var drawer = document.getElementById('vp-drawer');
+            var overlay = document.getElementById('vp-drawer-overlay');
+            var closeBtn = document.getElementById('vp-drawer-close');
+
+            if (!btn || !drawer || !overlay || !closeBtn) return;
+
+            function openDrawer() {
+                drawer.classList.add('open');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeDrawer() {
+                drawer.classList.remove('open');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            btn.addEventListener('click', openDrawer);
+            closeBtn.addEventListener('click', closeDrawer);
+            overlay.addEventListener('click', closeDrawer);
+
+            // 抽屉内点击链接后关闭
+            var links = drawer.querySelectorAll('.vp-sidebar-link');
+            for (var i = 0; i < links.length; i++) {
+                links[i].addEventListener('click', closeDrawer);
+            }
+
+            // 侧边栏和高亮滚动
+            var sidebarLinks = document.querySelectorAll('.vp-sidebar-link');
+            var sections = [];
+            for (var i = 0; i < sidebarLinks.length; i++) {
+                var href = sidebarLinks[i].getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    var el = document.getElementById(href.substring(1));
+                    if (el) sections.push({ link: sidebarLinks[i], el: el });
+                }
+            }
+
+            // 初始高亮
+            function updateActive() {
+                var scrollY = window.scrollY + 120;
+                var active = null;
+                for (var i = 0; i < sections.length; i++) {
+                    var sec = sections[i];
+                    if (sec.el.offsetTop <= scrollY) {
+                        active = sec;
+                    }
+                }
+                for (var j = 0; j < sidebarLinks.length; j++) {
+                    sidebarLinks[j].classList.remove('active');
+                }
+                if (active) {
+                    active.link.classList.add('active');
+                }
+            }
+
+            window.addEventListener('scroll', updateActive, { passive: true });
+            updateActive();
+
+            // 代码复制
+            var copyBtns = document.querySelectorAll('.vp-code-copy');
+            for (var k = 0; k < copyBtns.length; k++) {
+                copyBtns[k].addEventListener('click', function() {
+                    var code = this.parentElement.nextElementSibling.querySelector('code');
+                    if (code) {
+                        var text = code.textContent;
+                        if (navigator.clipboard) {
+                            navigator.clipboard.writeText(text).then(function() {
+                                // 复制成功反馈
+                            }).catch(function() {});
+                        }
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
+</html>

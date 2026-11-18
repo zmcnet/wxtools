@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico">
+    <title data-en="Wuxin Tools | A Powerful Android Flashing Toolbox">无心工具箱 | 一款功能强大简洁高效的工具箱</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/banner.css">
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+    <link rel="stylesheet" href="../static/css/partition.css">
+    <link rel="stylesheet" href="../static/css/filemanager.css">
+    <link rel="stylesheet" href="../static/css/extensions.css">
+    <link rel="stylesheet" href="../static/css/features.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/animations.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="../favicon.ico" alt="没有心科技" class="logo-icon">
+                <a href="../index.html" class="logo-text" data-en="NoHeart Tech">没有心科技</a>
+            </div>
+            <div class="menu-section">
+                <nav class="main-menu">
+                    <a href="../index.html" class="menu-item" data-en="Home">首页</a>
+                    <a href="../rom/index.html" class="menu-item" data-en="ROM">ROM发布</a>
+                    <a href="index.html" class="menu-item active" data-en="Wuxin Tools">无心工具箱</a>
+                    <a href="#" class="menu-item" data-en="Community">社区论坛</a>
+                    <a href="../docs/index.html" class="menu-item" data-en="Tutorial">教程文档</a>
+                    <a href="contact.html" class="menu-item" data-en="Contact">联系我们</a>
+                </nav>
+                <div class="custom-functions">
+                    <button id="theme-toggle" class="theme-toggle btn-press" aria-label="切换主题">
+                        <span class="theme-icon">🌙</span>
+                        <span class="theme-text" data-en="Light">主题</span>
+                    </button>
+                    <button id="hamburger-btn" class="hamburger-btn btn-press" aria-label="打开菜单">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 移动端侧滑菜单 -->
+    <div id="menu-overlay" class="menu-overlay"></div>
+    <nav id="mobile-menu" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title" data-en="Menu">菜单</span>
+            <button id="mobile-menu-close" class="mobile-menu-close btn-press" aria-label="关闭菜单">&times;</button>
+        </div>
+        <a href="../index.html" class="mobile-menu-item" data-en="Home">首页</a>
+        <a href="../rom/index.html" class="mobile-menu-item" data-en="ROM">ROM发布</a>
+        <a href="index.html" class="mobile-menu-item active" data-en="Wuxin Tools">无心工具箱</a>
+        <a href="#" class="mobile-menu-item" data-en="Community">社区论坛</a>
+        <a href="../docs/index.html" class="mobile-menu-item" data-en="Tutorial">教程文档</a>
+        <a href="contact.html" class="mobile-menu-item" data-en="Contact">联系我们</a>
+        <span class="mobile-menu-sub-label" data-en="Tools">工具</span>
+        <a href="../tools/index.html" class="mobile-menu-sub-item active" data-en="Home">首页</a>
+        <a href="../tools/download.html" class="mobile-menu-sub-item" data-en="Download">下载中心</a>
+        <a href="../tools/doc/index.html" class="mobile-menu-sub-item" data-en="Docs">使用文档</a>
+        <a href="../tools/update.html" class="mobile-menu-sub-item" data-en="Updates">更新日志</a>
+        <div class="mobile-menu-divider"></div>
+        <button id="mobile-theme-toggle" class="mobile-theme-toggle btn-press">
+            <span class="theme-icon">🌙</span>
+            <span class="theme-text" data-en="Light">切换主题</span>
+        </button>
+    </nav>
+
+    <!-- 无心工具箱子导航 -->
+    <nav class="sub-nav">
+        <div class="sub-nav-inner">
+            <a href="../tools/index.html" class="sub-nav-item active" data-en="Home">首页</a>
+            <a href="../tools/download.html" class="sub-nav-item" data-en="Download">下载中心</a>
+            <a href="../tools/doc/index.html" class="sub-nav-item" data-en="Docs">使用文档</a>
+            <a href="../tools/update.html" class="sub-nav-item" data-en="Updates">更新日志</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="banner">
+            <div class="banner-container">
+                <div class="banner-left hero-enter">
+                    <img src="../static/images/title.webp" alt="无心工具箱预览" class="banner-preview-img">
+                </div>
+                <div class="banner-right">
+                    <h1 class="banner-title hero-enter" data-en="Wuxin Tools">无心工具箱</h1>
+                    <p class="banner-desc hero-enter hero-enter-d1" data-en="A powerful, clean and efficient Android debugging and flashing toolbox, supporting all ADB and FASTBOOT commands, making device management easier.">一款功能强大、简洁高效的Android调试与刷机工具箱，支持ADB和FASTBOOT全命令，让您的设备管理更轻松。</p>
+                    <p class="banner-update hero-enter hero-enter-d2" data-en="Updated: June 18, 2026">更新日期：2026年6月18日</p>
+                    <div class="banner-buttons hero-enter hero-enter-d3">
+                        <a href="../tools/doc/index.html" class="btn-help btn-press" data-en="Documentation">使用文档</a>
+                        <a href="../tools/download.html" class="btn-download btn-press" data-en="Download">点此下载</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 仪表盘功能展示 -->
+        <section class="dashboard">
+            <div class="dashboard-container">
+                <div class="dashboard-header anim anim-fade-up">
+                    <h2 class="dashboard-title" data-en="Device Dashboard">设备仪表盘</h2>
+                    <p class="dashboard-subtitle" data-en="At a glance, full device information">一目了然，全面掌握设备信息</p>
+                </div>
+                <div class="dashboard-body">
+                    <div class="dashboard-intro anim anim-slide-left">
+                        <p data-en="After connecting the device, the dashboard instantly reads and displays complete device information. From <strong>CPU core utilization and real-time frequency</strong> to <strong>device model, Android version, manufacturer</strong>, all key parameters are available.">连接设备后，仪表盘将即时读取并展示完整的设备信息。从 <strong>CPU核心利用率与实时频率</strong>，到 <strong>设备型号、Android版本、厂商与制造商</strong>，核心参数一应俱全。</p>
+                        <p data-en="You can also quickly view <strong>serial number, CPU architecture, SoC model</strong> and other underlying hardware information, as well as <strong>memory size, storage space</strong> usage. <strong>Battery status</strong> and <strong>network type</strong> refresh in real-time, <strong>screen resolution</strong> is one click away.">您还可以快速查看 <strong>序列号、CPU架构、SoC型号</strong> 等底层硬件信息，以及 <strong>内存大小、存储空间</strong> 的使用情况。<strong>电池状态</strong> 与 <strong>网络类型</strong> 实时刷新，<strong>屏幕分辨率</strong> 一键获取，无需逐条输入命令，所有关键数据汇聚一屏，高效便捷。</p>
+                    </div>
+                    <div class="dashboard-preview anim anim-fade-up">
+                        <img src="../static/images/dashboard.webp" alt="设备仪表盘预览" class="preview-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分区管理功能展示 -->
+        <section class="partition">
+            <div class="partition-container">
+                <div class="partition-header anim anim-fade-up">
+                    <h2 class="partition-title" data-en="Partition Management">分区管理</h2>
+                    <p class="partition-subtitle" data-en="Full control of device partitions, safe and efficient">全方位掌控设备分区，安全高效</p>
+                </div>
+                <div class="partition-body">
+                    <div class="partition-slideshow anim anim-slide-left" data-slideshow="partition">
+                        <div class="slideshow-wrapper">
+                            <div class="slide active">
+                                <img src="../static/images/nomalpart.webp" alt="普通分区管理" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="../static/images/dynamicpart.webp" alt="动态分区管理" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="../static/images/reboot.webp" alt="重启管理" class="slide-img">
+                            </div>
+                        </div>
+                        <button class="slide-arrow slide-prev" aria-label="上一张">&#8249;</button>
+                        <button class="slide-arrow slide-next" aria-label="下一张">&#8250;</button>
+                        <div class="slide-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                    <div class="partition-accordion anim anim-fade-up">
+                        <div class="feature-card card-lift">
+                            <h3 class="feature-card-title" data-en="Normal Partition Management">普通分区管理</h3>
+                            <p class="feature-card-desc" data-en="A complete management solution for traditional partition structures. Supports <strong>flashing partitions</strong> to write images to specified partitions, <strong>erasing partitions</strong> to clear partition data, <strong>formatting data</strong> to reset user storage, <strong>removing AVB2.0 verification</strong> to disable boot validation, <strong>switching slots</strong> to freely switch between A/B partitions, <strong>removing FRP lock</strong> to bypass factory reset protection, and <strong>locking/unlocking BL</strong> to control Bootloader status.">针对传统分区结构的完整管理方案。支持<strong>刷写分区</strong>将镜像写入指定分区，<strong>擦除分区</strong>清除分区数据，<strong>格式化数据</strong>重置用户存储，<strong>去除AVB2.0验证</strong>解除启动校验，<strong>切换槽位</strong>在A/B分区间自由切换，<strong>去除FRP锁</strong>绕过工厂重置保护，以及<strong>解锁/上锁BL</strong>控制Bootloader状态。</p>
+                        </div>
+                        <div class="feature-card card-lift">
+                            <h3 class="feature-card-title" data-en="Dynamic Partition Management">动态分区管理</h3>
+                            <p class="feature-card-desc" data-en="Built for Dynamic Partition devices. Supports <strong>flashing partitions</strong> and <strong>erasing partitions</strong> operations, <strong>formatting data</strong> to clean storage, <strong>removing FRP lock</strong> to disable protection, <strong>resizing logical partitions</strong> to flexibly allocate super partition space, and <strong>logical partition management</strong> to create, delete and configure logical partitions.">专为动态分区（Dynamic Partition）设备打造。支持<strong>刷写分区</strong>与<strong>擦除分区</strong>操作，<strong>格式化数据</strong>清理存储，<strong>去除FRP锁</strong>解除保护，<strong>调整逻辑分区大小</strong>灵活分配super分区空间，以及<strong>逻辑分区管理</strong>对逻辑分区进行创建、删除与配置。</p>
+                        </div>
+                        <div class="feature-card card-lift">
+                            <h3 class="feature-card-title" data-en="Reboot Management">重启管理</h3>
+                            <p class="feature-card-desc" data-en="One-click control of device reboot modes. Supports <strong>rebooting to system</strong> for normal startup, <strong>rebooting to Recovery</strong> to enter recovery mode for flashing and backups, <strong>rebooting to Fastbootd</strong> to enter Fastbootd mode for dynamic partition management, and <strong>rebooting to EDL</strong> to enter emergency download mode for low-level flashing.">一键控制设备重启模式。支持<strong>重启系统</strong>正常启动设备，<strong>重启到Recovery</strong>进入恢复模式进行刷机与备份，<strong>重启到Fastbootd</strong>进入Fastbootd模式管理动态分区，以及<strong>重启到EDL</strong>进入紧急下载模式进行底层刷写。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文件管理功能展示 -->
+        <section class="filemanager">
+            <div class="filemanager-container">
+                <div class="filemanager-header anim anim-fade-up">
+                    <h2 class="filemanager-title" data-en="File Manager">文件管理</h2>
+                    <p class="filemanager-subtitle" data-en="Intuitive and efficient, easy file control">直观高效，轻松掌控设备文件</p>
+                </div>
+                <div class="filemanager-body">
+                    <div class="filemanager-intro anim anim-slide-left">
+                        <p data-en="Browse and manage files on Android devices directly from your computer via ADB connection. Supports basic operations like <strong>copy, cut, paste</strong>, smooth and natural just like using a local file explorer, no need to memorize tedious command-line instructions.">通过ADB连接，直接在电脑端浏览与管理Android设备上的文件。支持<strong>复制、剪切、粘贴</strong>等基础操作，像使用本地资源管理器一样流畅自然，无需记忆繁琐的命令行指令。</p>
+                        <p data-en="Need to create a new folder or <strong>search for files</strong>? Done with one click. Also supports <strong>pushing files</strong> from computer to device paths quickly, batch operations are just as easy, making file management no longer a hassle.">需要新建文件夹或<strong>搜索文件</strong>？一键即可完成。还支持<strong>推送文件</strong>从电脑快速传输到设备指定路径，批量操作同样得心应手，让文件管理不再繁琐。</p>
+                    </div>
+                    <div class="filemanager-preview anim anim-fade-up">
+                        <img src="../static/images/file.webp" alt="文件管理预览" class="preview-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 功能扩展展示 -->
+        <section class="extensions">
+            <div class="extensions-container">
+                <div class="extensions-header anim anim-fade-up">
+                    <h2 class="extensions-title" data-en="Extensions">功能扩展</h2>
+                    <p class="extensions-subtitle" data-en="More useful tools for advanced needs">更多实用工具，覆盖进阶需求</p>
+                </div>
+                <div class="extensions-body">
+                    <div class="extensions-slideshow anim anim-slide-left" data-slideshow="extensions">
+                        <div class="slideshow-wrapper">
+                            <div class="slide active">
+                                <img src="../static/images/drive.webp" alt="安装驱动" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="../static/images/device.webp" alt="设备管理器" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="../static/images/cmd.webp" alt="命令行工具" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="../static/images/payload.webp" alt="Payload解包工具" class="slide-img">
+                            </div>
+                            <div class="slide">
+                                <img src="../static/images/SElinux.webp" alt="SELinux规则合并工具" class="slide-img">
+                            </div>
+                        </div>
+                        <button class="slide-arrow slide-prev" aria-label="上一张">&#8249;</button>
+                        <button class="slide-arrow slide-next" aria-label="下一张">&#8250;</button>
+                        <div class="slide-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                    <div class="extensions-intro anim anim-fade-up">
+                        <div class="ext-item card-lift">
+                            <h3 class="ext-item-title" data-en="Install Driver">安装驱动</h3>
+                            <p class="ext-item-desc" data-en="One-click install Android USB driver, no need to manually search and configure, device is instantly recognized upon connection, saving you the tedious driver installation process.">一键安装Android USB驱动，无需手动查找与配置，连接设备即刻识别，省去繁琐的驱动安装流程。</p>
+                        </div>
+                        <div class="ext-item card-lift">
+                            <h3 class="ext-item-title" data-en="Open Device Manager">打开设备管理器</h3>
+                            <p class="ext-item-desc" data-en="Quickly open the system device manager to check the connection status and driver status of Android devices at any time, making connection troubleshooting clear at a glance.">快捷打开系统设备管理器，随时检查Android设备的连接状态与驱动情况，排查连接问题一目了然。</p>
+                        </div>
+                        <div class="ext-item card-lift">
+                            <h3 class="ext-item-title" data-en="Command Line Tool">命令行工具</h3>
+                            <p class="ext-item-desc" data-en="Built-in terminal supports direct execution of <strong>adb, fastboot, hdc</strong> commands, with customizable theme colors and font sizes for a personalized command line experience.">内置终端支持<strong>adb、fastboot、hdc</strong>命令直接执行，可自定义主题配色与字体大小，打造专属命令行体验。</p>
+                        </div>
+                        <div class="ext-item card-lift">
+                            <h3 class="ext-item-title" data-en="Payload Unpack Tool">Payload解包工具</h3>
+                            <p class="ext-item-desc" data-en="Parse the payload.bin file in Android OTA update packages, extract required partition images, providing convenience for flashing and downgrading.">解析Android OTA升级包中的payload.bin文件，提取所需分区镜像，为刷机与降级提供便利。</p>
+                        </div>
+                        <div class="ext-item card-lift">
+                            <h3 class="ext-item-title" data-en="SELinux Rule Merge Tool">SELinux规则合并工具</h3>
+                            <p class="ext-item-desc" data-en="Supports <strong>log capture, file loading, rule extraction, rule merging, rule export, rule optimization</strong>, providing a one-stop solution for SELinux policy adjustments.">支持<strong>抓取日志、加载文件、规则提取、规则合并、规则导出、规则优化</strong>，一站式完成SELinux策略调整。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 特色功能 -->
+        <section class="features">
+            <div class="features-container">
+                <div class="features-header anim anim-fade-up">
+                    <h2 class="features-title" data-en="Features">特色功能</h2>
+                    <p class="features-subtitle" data-en="Comprehensive coverage of every aspect of Android debugging and flashing">全面覆盖 Android 调试与刷机的每一个环节</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feat-card card-lift anim anim-fade-up anim-delay-1">
+                        <div class="feat-num">01</div>
+                        <h3 class="feat-card-title" data-en="Smart Device Management">智能设备管理</h3>
+                        <ul class="feat-list">
+                            <li data-en="<strong>Real-time Device Detection</strong> — Automatically detect ADB and Fastboot device connection status, update device info in real-time"><strong>实时设备检测</strong> — 自动检测 ADB 和 Fastboot 设备连接状态，实时更新设备信息</li>
+                            <li data-en="<strong>Detailed Device Info</strong> — Display device model, manufacturer, Android version, CPU architecture, memory, storage and other details"><strong>详细设备信息</strong> — 显示设备型号、制造商、Android 版本、CPU 架构、内存、存储等详细信息</li>
+                            <li data-en="<strong>CPU Monitoring</strong> — Real-time monitoring of device CPU usage, visualized performance data"><strong>CPU 监控</strong> — 实时监控设备 CPU 使用率，可视化展示性能数据</li>
+                            <li data-en="<strong>Device Cache</strong> — Smart caching of device information, reducing repeated queries, improving response speed"><strong>设备缓存</strong> — 智能缓存设备信息，减少重复查询，提升响应速度</li>
+                        </ul>
+                    </div>
+                    <div class="feat-card card-lift anim anim-fade-up anim-delay-2">
+                        <div class="feat-num">02</div>
+                        <h3 class="feat-card-title" data-en="Partition Management Tools">分区管理工具</h3>
+                        <ul class="feat-list">
+                            <li data-en="<strong>Normal Partition Management</strong> — View all normal partitions, including partition name, size, type and other details"><strong>普通分区管理</strong> — 查看设备所有普通分区列表，包括分区名称、大小、类型等详细信息</li>
+                            <li data-en="<strong>Image Flashing</strong> — Flash .img image files to specified partitions, supports single slot and AB dual slot flashing"><strong>镜像刷入</strong> — 将 .img 镜像文件刷入到指定分区，支持单槽位和 AB 双槽位刷入</li>
+                            <li data-en="<strong>Batch Erase</strong> — Multi-select partitions for batch data erasure, improving operational efficiency"><strong>批量擦除</strong> — 多选分区批量擦除数据，提升操作效率</li>
+                            <li data-en="<strong>Dynamic Partition Management</strong> — Support Android dynamic partition system, view dynamic partition list and sizes"><strong>动态分区管理</strong> — 支持 Android 动态分区系统，查看动态分区列表和大小</li>
+                            <li data-en="<strong>Logical Partition Management</strong> — Manage logical partitions in dynamic partitions, view, erase, format"><strong>逻辑分区管理</strong> — 管理动态分区中的逻辑分区，可查看、擦除、格式化</li>
+                            <li data-en="<strong>Resize Partitions</strong> — Flexibly adjust dynamic partition sizes to meet different needs"><strong>调整分区大小</strong> — 灵活调整动态分区大小，满足不同需求</li>
+                            <li data-en="<strong>Other Features</strong> — Partition erase, format, large file optimization, progress display, timeout protection"><strong>其他功能</strong> — 分区擦除、格式化、大文件优化、进度显示、超时保护</li>
+                        </ul>
+                    </div>
+                    <div class="feat-card card-lift anim anim-fade-up anim-delay-3">
+                        <div class="feat-num">03</div>
+                        <h3 class="feat-card-title" data-en="Reboot Management">重启管理</h3>
+                        <ul class="feat-list">
+                            <li data-en="<strong>Multiple Reboot Modes</strong> — Supports rebooting to system, Recovery, Bootloader, Fastbootd, EDL and other modes"><strong>多种重启模式</strong> — 支持重启到系统、Recovery、Bootloader、Fastbootd、EDL 等模式</li>
+                            <li data-en="<strong>One-click Operation</strong> — Quickly switch device boot modes, convenient for flashing and debugging"><strong>一键操作</strong> — 快速切换设备启动模式，方便刷机和调试</li>
+                            <li data-en="<strong>Safety Confirmation</strong> — Confirmation prompt before reboot operation to prevent accidental operation"><strong>安全确认</strong> — 重启操作前有确认提示，防止误操作</li>
+                        </ul>
+                    </div>
+                    <div class="feat-card card-lift anim anim-fade-up anim-delay-4">
+                        <div class="feat-num">04</div>
+                        <h3 class="feat-card-title" data-en="Payload Unpack Tool">Payload 解包工具</h3>
+                        <ul class="feat-list">
+                            <li data-en="<strong>Latest Format Support</strong> — Supports Android 10+ Payload image formats (.bin and .zip)"><strong>支持最新格式</strong> — 支持 Android 10+ 的 Payload 镜像格式（.bin 和 .zip）</li>
+                            <li data-en="<strong>Partition List View</strong> — View all partitions and their sizes in the Payload image"><strong>分区列表查看</strong> — 查看 Payload 镜像中的所有分区及其大小信息</li>
+                            <li data-en="<strong>Select All Unpack</strong> — One-click unpack all partitions in the Payload image"><strong>全选解包</strong> — 一键解包 Payload 镜像中的所有分区</li>
+                            <li data-en="<strong>Selective Unpack</strong> — Select specific partitions to unpack, supports select all/deselect all"><strong>选择性解包</strong> — 选择特定分区进行解包，可全选/取消全选</li>
+                            <li data-en="<strong>Real-time Progress</strong> — Real-time display of unpack progress percentage and status information"><strong>实时进度</strong> — 实时显示解包进度百分比和状态信息</li>
+                            <li data-en="<strong>Log Output</strong> — Detailed unpacking process logs, supports copying log content"><strong>日志输出</strong> — 详细显示解包过程日志，支持复制日志内容</li>
+                            <li data-en="<strong>Task Control</strong> — Supports stopping unpacking tasks midway, flexible control of the operation flow"><strong>任务控制</strong> — 支持中途停止解包任务，灵活控制操作流程</li>
+                        </ul>
+                    </div>
+                    <div class="feat-card card-lift anim anim-fade-up anim-delay-5">
+                        <div class="feat-num">05</div>
+                        <h3 class="feat-card-title" data-en="Command Line Tool">命令行工具</h3>
+                        <ul class="feat-list">
+                            <li data-en="<strong>Multi-command Support</strong> — Built-in ADB, Fastboot, HDC three command line tools"><strong>多命令支持</strong> — 内置 ADB、Fastboot、HDC 三种命令行工具</li>
+                            <li data-en="<strong>Multi-tab</strong> — Supports up to 4 command line tabs for executing multiple commands simultaneously"><strong>多标签页</strong> — 支持最多 4 个命令行标签页，方便同时执行多个命令</li>
+                            <li data-en="<strong>Command History</strong> — Automatically records command history, supports up/down arrow keys for quick navigation"><strong>命令历史</strong> — 自动记录命令历史，支持上下键快速切换</li>
+                            <li data-en="<strong>Shortcut Operations</strong> — Supports Ctrl+C to stop, Ctrl+L to clear and other shortcuts"><strong>快捷键操作</strong> — 支持 Ctrl+C 停止、Ctrl+L 清空等快捷键</li>
+                            <li data-en="<strong>Custom Settings</strong> — Adjustable font size, theme, timeout, etc."><strong>自定义设置</strong> — 可调整字体大小、主题、超时时间等</li>
+                        </ul>
+                    </div>
+                    <div class="feat-card card-lift anim anim-fade-up anim-delay-1">
+                        <div class="feat-num">06</div>
+                        <h3 class="feat-card-title" data-en="Driver Installation">驱动安装</h3>
+                        <ul class="feat-list">
+                            <li data-en="<strong>Built-in Driver</strong> — Built-in Android USB driver, no additional download needed"><strong>内置驱动</strong> — 内置 Android USB 驱动，无需额外下载</li>
+                            <li data-en="<strong>One-click Install</strong> — Quickly install Android device driver, solve device recognition issues"><strong>一键安装</strong> — 快速安装 Android 设备驱动，解决设备无法识别问题</li>
+                            <li data-en="<strong>Auto Detection</strong> — Automatically detect system environment, select appropriate driver version"><strong>自动检测</strong> — 自动检测系统环境，选择合适的驱动版本</li>
+                        </ul>
+                    </div>
+                    <div class="feat-card card-lift anim anim-fade-up anim-delay-2">
+                        <div class="feat-num">07</div>
+                        <h3 class="feat-card-title" data-en="Modern Interface">现代化界面</h3>
+                        <ul class="feat-list">
+                            <li data-en="<strong>Elegant Design</strong> — Modern Material Design style, clean and beautiful interface"><strong>精美设计</strong> — 采用现代化 Material Design 风格，界面简洁美观</li>
+                            <li data-en="<strong>Smooth Animations</strong> — Built-in animation effects, smooth and natural operation"><strong>流畅动画</strong> — 内置动画效果，操作流畅自然</li>
+                            <li data-en="<strong>High DPI Support</strong> — Perfect support for high-resolution screens, clear and sharp display"><strong>高 DPI 支持</strong> — 完美支持高分辨率屏幕，显示清晰锐利</li>
+                            <li data-en="<strong>Custom Window</strong> — Borderless window, supports minimize to tray"><strong>自定义窗口</strong> — 无边框窗口，支持最小化到托盘</li>
+                        </ul>
+                    </div>
+                    <div class="feat-card card-lift anim anim-fade-up anim-delay-3">
+                        <div class="feat-num">08</div>
+                        <h3 class="feat-card-title" data-en="Singleton Mode">单例模式</h3>
+                        <ul class="feat-list">
+                            <li data-en="<strong>Prevent Multiple Instances</strong> — Ensure only one program instance runs at a time"><strong>防止多开</strong> — 确保同一时间只有一个程序实例在运行</li>
+                            <li data-en="<strong>Message Passing</strong> — Newly started instance passes file paths to the running instance"><strong>消息传递</strong> — 新启动的实例会将文件路径传递给已运行的实例</li>
+                            <li data-en="<strong>Smart Wake-up</strong> — Double-click file association automatically wakes the running program window"><strong>智能唤醒</strong> — 双击文件关联时自动唤醒已运行的程序窗口</li>
+                        </ul>
+                    </div>
+                    <div class="feat-card card-lift anim anim-fade-up anim-delay-4">
+                        <div class="feat-num">09</div>
+                        <h3 class="feat-card-title" data-en="File Association &amp; Smart Flashing">文件关联与智能刷入</h3>
+                        <ul class="feat-list">
+                            <li data-en="<strong>Supported Formats</strong> — Supports .img, .bin, .elf three image file formats"><strong>支持格式</strong> — 支持 .img、.bin、.elf 三种镜像文件格式</li>
+                            <li data-en="<strong>Double-click Open</strong> — Double-click image file to automatically start the toolbox and enter normal partition management"><strong>双击打开</strong> — 双击镜像文件自动启动工具箱并进入普通分区管理</li>
+                            <li data-en="<strong>Context Menu</strong> — Right-click menu integrated with &quot;Flash with Wuxin Tools&quot; option"><strong>右键菜单</strong> — 右键菜单集成"使用无心工具箱刷入"选项</li>
+                            <li data-en="<strong>Smart Partition Recognition</strong> — Automatically extract partition name from filename (e.g., boot.img recognized as boot partition)"><strong>智能分区识别</strong> — 自动从文件名提取分区名（如 boot.img 识别为 boot 分区）</li>
+                            <li data-en="<strong>A/B Slot Matching</strong> — Automatically identify current slot, boot.img intelligently matches to boot_a or boot_b"><strong>A/B 槽位匹配</strong> — 自动识别当前槽位，boot.img 智能匹配到 boot_a 或 boot_b</li>
+                            <li data-en="<strong>Case Insensitive</strong> — BOOT.img automatically recognized as boot partition"><strong>大小写不敏感</strong> — BOOT.img 自动识别为 boot 分区</li>
+                            <li data-en="<strong>Underscore Support</strong> — system_ext.img automatically recognized as system_ext partition"><strong>下划线支持</strong> — system_ext.img 自动识别为 system_ext 分区</li>
+                            <li data-en="<strong>Automated Flow</strong> — Auto detect device → read info → read partitions → smart match → confirm flash"><strong>自动化流程</strong> — 自动检测设备→读取信息→读取分区→智能匹配→确认刷入</li>
+                        </ul>
+                    </div>
+                    <div class="feat-card card-lift anim anim-fade-up anim-delay-5">
+                        <div class="feat-num">10</div>
+                        <h3 class="feat-card-title" data-en="File Management Tools">文件管理工具</h3>
+                        <ul class="feat-list">
+                            <li data-en="<strong>Device File Browsing</strong> — Browse all files and folders on Android devices, real-time file list display"><strong>设备文件浏览</strong> — 浏览 Android 设备上的所有文件和文件夹，实时显示文件列表</li>
+                            <li data-en="<strong>File Operations</strong> — New folder, delete file/folder, rename and other basic operations"><strong>文件操作</strong> — 新建文件夹、删除文件/文件夹、重命名等基本操作</li>
+                            <li data-en="<strong>File Transfer</strong> — Download files/folders from device to computer, or upload from computer to device"><strong>文件传输</strong> — 从设备下载文件/文件夹到电脑，或从电脑上传到设备</li>
+                            <li data-en="<strong>Drag &amp; Drop Upload</strong> — Directly drag and drop files/folders from computer to file list for quick upload"><strong>拖拽上传</strong> — 直接从电脑拖拽文件/文件夹到文件列表，快速上传</li>
+                            <li data-en="<strong>Multi-select Operations</strong> — Multi-select files/folders for batch operations, improving work efficiency"><strong>多选操作</strong> — 多选文件/文件夹进行批量操作，提升工作效率</li>
+                            <li data-en="<strong>Compression &amp; Extraction</strong> — Supports ZIP, 7Z, TAR.GZ, TAR.BZ2, RAR, GZIP and other formats"><strong>压缩解压</strong> — 支持 ZIP、7Z、TAR.GZ、TAR.BZ2、RAR、GZIP 等多种格式</li>
+                            <li data-en="<strong>Password Protection</strong> — Set password protection for compressed files to ensure file security"><strong>密码保护</strong> — 为压缩文件设置密码保护，确保文件安全</li>
+                            <li data-en="<strong>File Verification</strong> — Calculate MD5, SHA1, SHA256, CRC32 checksums"><strong>文件校验</strong> — 计算文件的 MD5、SHA1、SHA256、CRC32 校验值</li>
+                            <li data-en="<strong>Double-click Open</strong> — Double-click file to automatically download to temporary directory and open with system default program"><strong>双击打开</strong> — 双击文件自动下载到临时目录，用系统默认程序打开</li>
+                            <li data-en="<strong>Search Function</strong> — Search files and folders in the current directory, quickly locate targets"><strong>搜索功能</strong> — 在当前目录下搜索文件和文件夹，快速定位目标</li>
+                            <li data-en="<strong>Real-time Monitoring</strong> — Real-time monitoring of device connection status, auto-reset interface when device disconnects"><strong>实时监控</strong> — 实时监控设备连接状态，设备断开时自动重置界面</li>
+                            <li data-en="<strong>Log System</strong> — Detailed recording of all operation logs, supports exporting logs to local files"><strong>日志系统</strong> — 详细记录所有操作日志，支持导出日志到本地文件</li>
+                            <li data-en="<strong>Storage Info</strong> — Display device storage space usage, including used space and total space"><strong>存储信息</strong> — 显示设备存储空间使用情况，包括已用空间和总空间</li>
+                        </ul>
+                    </div>
+                    <div class="feat-card card-lift anim anim-fade-up anim-delay-1">
+                        <div class="feat-num">11</div>
+                        <h3 class="feat-card-title" data-en="SELinux Rule Merge Tool">SELinux 规则合并工具</h3>
+                        <ul class="feat-list">
+                            <li data-en="<strong>Logcat Capture</strong> — Directly capture AVC denial logs from connected Android devices, customizable capture duration"><strong>Logcat 抓取</strong> — 从已连接的 Android 设备直接抓取 AVC 拒绝日志，可自定义抓取时长</li>
+                            <li data-en="<strong>File Loading</strong> — Select existing logcat log files for analysis, supports multi-file batch processing"><strong>文件加载</strong> — 选择已有的 logcat 日志文件进行分析，支持多文件批量处理</li>
+                            <li data-en="<strong>Rule Extraction</strong> — Automatically extract SELinux denial rules from logcat logs, intelligently parse AVC logs"><strong>规则提取</strong> — 自动从 logcat 日志中提取 SELinux 拒绝规则，智能解析 AVC 日志</li>
+                            <li data-en="<strong>Smart Merge</strong> — Merge rules from multiple log files, automatically remove duplicates"><strong>智能合并</strong> — 合并多个日志文件中的规则，自动去除重复项</li>
+                            <li data-en="<strong>Rule Optimization</strong> — Remove irrelevant rules and dangerous permissions, improve rule quality"><strong>规则优化</strong> — 去除不相关规则和危险权限，提升规则质量</li>
+                            <li data-en="<strong>Multi-format Export</strong> — Supports export in TE, CIL, Android sepolicy three formats"><strong>多格式导出</strong> — 支持导出为 TE、CIL、Android sepolicy 三种格式</li>
+                            <li data-en="<strong>Batch Export</strong> — Export corresponding rule files for each log file individually"><strong>批量导出</strong> — 为每个日志文件单独导出对应的规则文件</li>
+                            <li data-en="<strong>Rule Preview</strong> — Preview merged rule content for easy review"><strong>规则预览</strong> — 预览合并后的规则内容，方便检查</li>
+                            <li data-en="<strong>Rule Statistics</strong> — Display rule count statistics, including imported rules count, merged rules count, etc."><strong>规则统计</strong> — 显示规则数量统计信息，包括导入规则数、合并后规则数等</li>
+                        </ul>
+                    </div>
+                    <div class="feat-card feat-card-accent">
+                        <div class="feat-num">12</div>
+                        <h3 class="feat-card-title" data-en="Easter Egg">彩蛋功能</h3>
+                        <ul class="feat-list">
+                            <li data-en="<strong>2048 Game</strong> — Double-click the logo on the About page to open the 2048 mini-game"><strong>2048 游戏</strong> — 双击关于页面 LOGO 即可打开 2048 小游戏</li>
+                            <li data-en="<strong>Relax &amp; Play</strong> — Play a game to relax during work breaks"><strong>放松娱乐</strong> — 在工作之余可以玩一局游戏放松心情</li>
+                            <li data-en="<strong>Mouse &amp; Keyboard</strong> — Supports both mouse click and keyboard operation"><strong>鼠标键盘</strong> — 支持鼠标点击和键盘操作两种方式</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-logo-side">
+                    <img src="favicon.ico" alt="无心工具箱" class="footer-logo-img">
+                    <span class="footer-logo-name">无心工具箱</span>
+                </div>
+                <div class="footer-links-side">
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="Navigation">导航</h4>
+                        <a href="../index.html" data-en="Home">首页</a>
+                        <a href="../rom/index.html" data-en="ROM">ROM发布</a>
+                        <a href="index.html" data-en="Wuxin Tools">无心工具箱</a>
+                        <a href="#" data-en="Community">社区论坛</a>
+                        <a href="../docs/index.html" data-en="Tutorial">教程文档</a>
+                        <a href="../contact.html" data-en="Contact">联系我们</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="NoHeart Tech">没有心科技</h4>
+                        <a href="https://wx.ysyplat.cn/rom" target="_blank" rel="noopener" data-en="ROM Releases">ROM发布</a>
+                        <a href="https://wx.ysyplat.cn/tools" target="_blank" rel="noopener" data-en="Wuxin Tools">无心工具箱</a>
+                        <a href="#" target="_blank" rel="noopener" data-en="Community">社区论坛</a>
+                        <a href="../contact.html" target="_blank" rel="noopener" data-en="Contact Us">联系我们</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="Links">友情链接</h4>
+                        <a href="https://www.kybll.cn/" target="_blank" rel="noopener" data-en="KYBLL">空雨不流泪</a>
+                        <a href="https://www.ysyplat.com/" target="_blank" rel="noopener" data-en="YSYPLAT">屿笙云平台</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright" data-en="&copy; 2025-2026 Wuxin Tools. All Rights Reserved.">&copy; 2025-2026 无心工具箱. All Rights Reserved.</p>
+                <div class="footer-beian" data-en=" ">
+                    <a class="footer-icp" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">浙ICP备2023036308号-9</a>
+                    <a class="footer-gabeian" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33019202003173" target="_blank" rel="noopener">
+                        <img src="../static/images/gabeian.png" alt="" class="gabeian-icon">浙公网安备33019202003173号
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../static/js/theme.js"></script>
+    <script src="../static/js/slideshow.js"></script>
+    <script src="../static/js/page-transition.js"></script>
+    <script src="../static/js/animations.js"></script>
+    <script src="../static/js/img-protect.js"></script>
+    <script src="../static/js/config.js"></script>
+    <script src="../static/js/i18n.js"></script>
+</body>
+</html>

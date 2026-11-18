@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico">
+    <title data-en="Changelog | Wuxin Tools">更新日志 | 无心工具箱</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/update.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/animations.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="../favicon.ico" alt="没有心科技" class="logo-icon">
+                <a href="../index.html" class="logo-text" data-en="NoHeart Tech">没有心科技</a>
+            </div>
+            <div class="menu-section">
+                <nav class="main-menu">
+                    <a href="../index.html" class="menu-item" data-en="Home">首页</a>
+                    <a href="../rom/index.html" class="menu-item" data-en="ROM">ROM发布</a>
+                    <a href="index.html" class="menu-item active" data-en="Wuxin Tools">无心工具箱</a>
+                    <a href="#" class="menu-item" data-en="Community">社区论坛</a>
+                    <a href="../docs/index.html" class="menu-item" data-en="Tutorial">教程文档</a>
+                    <a href="../contact.html" class="menu-item" data-en="Contact">联系我们</a>
+                </nav>
+                <div class="custom-functions">
+                    <button id="theme-toggle" class="theme-toggle btn-press" aria-label="切换主题">
+                        <span class="theme-icon">🌙</span>
+                        <span class="theme-text" data-en="Light">主题</span>
+                    </button>
+                    <button id="hamburger-btn" class="hamburger-btn btn-press" aria-label="打开菜单">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="menu-overlay" class="menu-overlay"></div>
+    <nav id="mobile-menu" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title" data-en="Menu">菜单</span>
+            <button id="mobile-menu-close" class="mobile-menu-close btn-press" aria-label="关闭菜单">&times;</button>
+        </div>
+        <a href="../index.html" class="mobile-menu-item" data-en="Home">首页</a>
+        <a href="../rom/index.html" class="mobile-menu-item" data-en="ROM">ROM发布</a>
+        <a href="index.html" class="mobile-menu-item active" data-en="Wuxin Tools">无心工具箱</a>
+        <a href="#" class="mobile-menu-item" data-en="Community">社区论坛</a>
+        <a href="../docs/index.html" class="mobile-menu-item" data-en="Tutorial">教程文档</a>
+        <a href="../contact.html" class="mobile-menu-item" data-en="Contact">联系我们</a>
+        <span class="mobile-menu-sub-label" data-en="Tools">工具</span>
+        <a href="../tools/index.html" class="mobile-menu-sub-item" data-en="Home">首页</a>
+        <a href="../tools/download.html" class="mobile-menu-sub-item" data-en="Download">下载中心</a>
+        <a href="../tools/doc/index.html" class="mobile-menu-sub-item" data-en="Docs">使用文档</a>
+        <a href="../tools/update.html" class="mobile-menu-sub-item active" data-en="Updates">更新日志</a>
+        <div class="mobile-menu-divider"></div>
+        <button id="mobile-theme-toggle" class="mobile-theme-toggle btn-press">
+            <span class="theme-icon">🌙</span>
+            <span class="theme-text" data-en="Light">切换主题</span>
+        </button>
+    </nav>
+
+    <!-- 无心工具箱子导航 -->
+    <nav class="sub-nav">
+        <div class="sub-nav-inner">
+            <a href="../tools/index.html" class="sub-nav-item" data-en="Home">首页</a>
+            <a href="../tools/download.html" class="sub-nav-item" data-en="Download">下载中心</a>
+            <a href="../tools/doc/index.html" class="sub-nav-item" data-en="Docs">使用文档</a>
+            <a href="../tools/update.html" class="sub-nav-item active" data-en="Updates">更新日志</a>
+        </div>
+    </nav>
+
+    <main class="update-page">
+        <section class="update-hero">
+            <h1 class="update-hero-title hero-enter" data-en="Changelog">更新日志</h1>
+            <p class="update-hero-subtitle hero-enter hero-enter-d1" data-en="Tracking every improvement, continuously optimizing the experience">记录每一次进步，持续优化体验</p>
+        </section>
+
+        <div class="update-container">
+            <div class="timeline">
+                <!-- v1.2.4 -->
+                <div class="timeline-item anim anim-fade-up">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-version">
+                            <span class="timeline-version-tag">v1.2.4</span>
+                            <span class="timeline-date" data-en="June 18, 2026">2026年6月18日</span>
+                        </div>
+                        <h3 class="timeline-title" data-en="New Features, Optimizations & Bug Fixes">功能新增与体验优化和问题修复</h3>
+                        <ul class="timeline-list">
+                            <li class="add" data-en="Brand new Xiaomi Mi Flash tool, automatically skips various checks, ignores versions, improved stability and speed, better experience than official Miflash">全新小米万能线刷，自动跳过各种检查，无视版本，稳定性与速度都有提升，比官方 Miflash 体验好</li>
+                            <li class="add" data-en="New theme switching system, supports perfect dark/light mode switching">全新主题切换系统，支持深色浅色进行完美切换</li>
+                            <li class="add" data-en="Two new layouts added, bottom menu mode and floating menu, supports glass effect and switching animations">全新增加两种布局，底部菜单模式和悬浮菜单，支持玻璃效果和切换动画</li>
+                            <li class="add" data-en="New settings page, merged About section into Settings for better user experience">全新设置页面，将关于板块合并至设置页，更加符合使用体验</li>
+                            <li class="change" data-en="Reorganized some UI, unified progress bars, scrollbars, title bars, popups, etc.">重新整理部分 UI，将进度条、滚动条、标题栏、弹窗等等基本完成统一</li>
+                            <li class="change" data-en="Optimized AVB 2.0 verification removal logic">优化去除 AVB 2.0 检验逻辑</li>
+                            <li class="fix" data-en="Fixed the welcome message option logic issue in command line tool settings">修复命令行工具设置显示欢迎语选项逻辑问题</li>
+                            <li class="change" data-en="Optimized USB monitor logic for smoother connections">优化 USB 监控器逻辑，使得连接更加流畅</li>
+                            <li class="change" data-en="Updated ADB and fastboot tools and related dependencies">更新 ADB 和 fastboot 工具和相关依赖</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- v1.1.3 -->
+                <div class="timeline-item anim anim-fade-up anim-delay-1">
+                    <div class="timeline-dot old"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-version">
+                            <span class="timeline-version-tag old">v1.1.3</span>
+                            <span class="timeline-date" data-en="April 27, 2026">2026年4月27日</span>
+                        </div>
+                        <h3 class="timeline-title" data-en="Bug Fixes & Optimizations">问题修复与优化</h3>
+                        <ul class="timeline-list">
+                            <li class="fix" data-en="Fixed file drag-and-drop path format issue in command line tool, now auto-converts to Windows path format">修复命令行工具文件拖放路径格式问题，现在自动转换为 Windows 路径格式</li>
+                            <li class="fix" data-en="Fixed hdc shell TTY mode warning in command line tool, optimized command execution and output display">修复命令行工具 hdc shell 不支持 TTY 模式的警告问题，优化命令执行和输出显示</li>
+                            <li class="fix" data-en="Fixed duplicate prompt display after command timeout in command line tool, ensuring normal command execution flow">修复命令行工具中的命令超时后提示符重复显示的问题，确保命令执行流程正常</li>
+                            <li class="fix" data-en="Fixed adb shell interactive commands getting stuck and unable to execute">修复命令行工具 adb shell 交互式命令卡住并且无法执行的问题</li>
+                            <li class="fix" data-en="Fixed setting option selection saving causing output to be cleared in command line tool">修复命令行工具中的设置选项选择保存后会自动清空当前输出的问题</li>
+                            <li class="fix" data-en="Fixed text color display issue after theme switching in command line tool">修复命令行工具中的主题切换导致文字颜色显示异常的问题</li>
+                            <li class="fix" data-en="Fixed scroll to latest output option not working in command line tool">修复命令行工具中的滚动到最新输出选项不可用的问题</li>
+                            <li class="change" data-en="Corrected SELinux rule merge tool documentation, clarified operation is done entirely with device powered on">修正 SELinux 合并规则工具的文档说明，明确全程在开机状态下操作</li>
+                            <li class="fix" data-en="Fixed inaccurate second calculation in SELinux log capture, now uses actual timestamps for precision">修复 SELinux 日志抓取秒数计算不准确的问题，现在使用实际时间戳确保精确</li>
+                            <li class="change" data-en="Optimized timeout handling logic in command line tool for improved stability with long-running commands">优化命令行工具的超时处理逻辑，提升长时间运行命令的稳定性</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- v1.1.2 -->
+                <div class="timeline-item anim anim-fade-up anim-delay-2">
+                    <div class="timeline-dot old"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-version">
+                            <span class="timeline-version-tag old">v1.1.2</span>
+                            <span class="timeline-date" data-en="April 15, 2026">2026年4月15日</span>
+                        </div>
+                        <h3 class="timeline-title" data-en="New Features & Optimizations">新增功能与功能优化</h3>
+                        <ul class="timeline-list">
+                            <li class="add" data-en="New complete file management feature, supports batch copy, cut, paste, delete operations, as well as decompression, checksum viewing, file drag-and-drop upload, advanced search, double-click files to open on computer, etc.">新增完整的文件管理功能，支持批量操作复制、剪切、粘贴、删除等，同时支持解压缩、查看校验、文件拖拽上传、高级搜索、双击文件直接用电脑打开等</li>
+                            <li class="add" data-en="New SELinux rule merge tool, supports batch processing of logcat files and merging rules, supports three export formats (te, cil, android sepolicy), intelligent deduplication and dangerous rule optimization">新增合并SELinux规则工具，支持批量处理logcat文件并合并规则，支持三种导出格式（te、cil、android sepolicy），支持智能去重和优化危险规则</li>
+                            <li class="change" data-en="Optimized dashboard for faster real-time CPU monitoring, supports more CPU monitoring logic, supports new and old models, optimized model retrieval logic for faster and more stable performance">优化仪表盘功能，更快的CPU监控实时显示，同时支持更多CPU监控逻辑，支持新老机型，同时优化型号获取逻辑，更快更稳</li>
+                            <li class="fix" data-en="Fixed occasional dashboard issue where device shows disconnected and flickers after connecting">修复偶现仪表盘连接设备后显示未连接并且抽搐的问题</li>
+                            <li class="fix" data-en="Fixed abnormal font size display in some cases">修复部分情况下字体大小显示异常的问题</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- v1.0.1 -->
+                <div class="timeline-item anim anim-fade-up anim-delay-3">
+                    <div class="timeline-dot old"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-version">
+                            <span class="timeline-version-tag old">v1.0.1</span>
+                            <span class="timeline-date" data-en="April 12, 2026">2026年4月12日</span>
+                        </div>
+                        <h3 class="timeline-title" data-en="Optimizations & Fixes">优化与修复</h3>
+                        <ul class="timeline-list">
+                            <li class="change" data-en="Optimized device info reading speed in reboot management">优化重启管理的读取设备信息速度</li>
+                            <li class="fix" data-en="Fixed window not popping up when double-clicking img files">修复双击img文件时窗口不弹出的问题</li>
+                            <li class="fix" data-en="Fixed sidebar selection state not updating after right-click menu navigation">修复右键菜单跳转后侧边栏选中状态不更新的问题</li>
+                            <li class="fix" data-en="Fixed installer and uninstaller unable to request administrator privileges">修复安装程序和卸载程序无法申请管理员权限的问题</li>
+                            <li class="change" data-en="Optimized and hardened installer to avoid being treated as a virus">优化和加固安装程序，避免被当病毒处理</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- v1.0.0 -->
+                <div class="timeline-item anim anim-fade-up anim-delay-4">
+                    <div class="timeline-dot old"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-version">
+                            <span class="timeline-version-tag old">v1.0.0</span>
+                            <span class="timeline-date" data-en="April 11, 2026">2026年4月11日</span>
+                        </div>
+                        <h3 class="timeline-title" data-en="Initial Release">初始发布</h3>
+                        <ul class="timeline-list">
+                            <li class="add" data-en="Smart device management: real-time ADB and Fastboot device detection, detailed device info display">智能设备管理：实时检测ADB和Fastboot设备，显示详细设备信息</li>
+                            <li class="add" data-en="Partition management tool: supports regular and dynamic partition management">分区管理工具：支持普通分区和动态分区管理</li>
+                            <li class="add" data-en="Reboot management: supports multiple reboot modes">重启管理：支持多种重启模式</li>
+                            <li class="add" data-en="Payload unpacking tool: supports Android 10+ Payload image format">Payload解包工具：支持Android 10+的Payload镜像格式</li>
+                            <li class="add" data-en="Command line tool: built-in ADB, Fastboot, HDC command line tools">命令行工具：内置ADB、Fastboot、HDC三种命令行工具</li>
+                            <li class="add" data-en="Driver installation: one-click Android device driver installation">驱动安装：一键安装Android设备驱动</li>
+                            <li class="add" data-en="Modern interface: Material Design style, clean and beautiful interface">现代化界面：采用Material Design风格，界面简洁美观</li>
+                            <li class="add" data-en="File association: supports double-clicking image files for auto-flashing">文件关联：支持双击镜像文件自动刷入</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-logo-side">
+                    <img src="../favicon.ico" alt="没有心科技" class="footer-logo-img">
+                    <span class="footer-logo-name" data-en="NoHeart Tech">没有心科技</span>
+                </div>
+                <div class="footer-links-side">
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="Navigation">导航</h4>
+                        <a href="../index.html" data-en="Home">首页</a>
+                        <a href="../rom/index.html" data-en="ROM">ROM发布</a>
+                        <a href="index.html" data-en="Wuxin Tools">无心工具箱</a>
+                    <a href="#" data-en="Community">社区论坛</a>
+                    <a href="../docs/index.html" data-en="Tutorial">教程文档</a>
+                    <a href="../contact.html" data-en="Contact">联系我们</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="NoHeart Tech">没有心科技</h4>
+                        <a href="https://wx.ysyplat.cn/rom" target="_blank" rel="noopener" data-en="ROM Releases">ROM发布</a>
+                        <a href="https://wx.ysyplat.cn/tools" target="_blank" rel="noopener" data-en="Wuxin Tools">无心工具箱</a>
+                        <a href="#" target="_blank" rel="noopener" data-en="Community">社区论坛</a>
+                        <a href="../contact.html" target="_blank" rel="noopener" data-en="Contact Us">联系我们</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="Links">友情链接</h4>
+                        <a href="https://www.kybll.cn/" target="_blank" rel="noopener" data-en="KYBLL">空雨不流泪</a>
+                        <a href="https://www.ysyplat.com/" target="_blank" rel="noopener" data-en="YSYPLAT">屿笙云平台</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright" data-en="&copy; 2025-2026 NoHeart Tech. All Rights Reserved.">&copy; 2025-2026 没有心科技. All Rights Reserved.</p>
+                <div class="footer-beian" data-en=" ">
+                    <a class="footer-icp" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">浙ICP备2023036308号-9</a>
+                    <a class="footer-gabeian" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33019202003173" target="_blank" rel="noopener">
+                        <img src="../static/images/gabeian.png" alt="" class="gabeian-icon">浙公网安备33019202003173号
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../static/js/theme.js"></script>
+    <script src="../static/js/page-transition.js"></script>
+    <script src="../static/js/animations.js"></script>
+    <script src="../static/js/img-protect.js"></script>
+    <script src="../static/js/config.js"></script>
+    <script src="../static/js/i18n.js"></script>
+</body>
+</html>

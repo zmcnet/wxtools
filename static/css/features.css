@@ -1,0 +1,244 @@
+/* 特色功能展示区 */
+.features {
+    padding: 80px 0;
+    background-color: #f8fafc;
+}
+
+.features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+}
+
+.features-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.features-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a2332;
+    margin: 0 0 12px;
+}
+
+.features-subtitle {
+    font-size: 16px;
+    color: #6b7280;
+    margin: 0;
+}
+
+/* 网格布局 */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+/* 功能卡片 */
+.feat-card {
+    background-color: #fff;
+    border: 1px solid #e8ecf1;
+    border-radius: 12px;
+    padding: 28px 24px;
+    position: relative;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feat-card:hover {
+    border-color: #1a73e8;
+    box-shadow: 0 4px 16px rgba(26, 115, 232, 0.08);
+}
+
+/* 编号 */
+.feat-num {
+    font-size: 40px;
+    font-weight: 800;
+    color: #e8ecf1;
+    line-height: 1;
+    margin-bottom: 8px;
+    user-select: none;
+}
+
+.feat-card:hover .feat-num {
+    color: #1a73e8;
+    opacity: 0.15;
+}
+
+/* 卡片标题 */
+.feat-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a2332;
+    margin: 0 0 16px;
+}
+
+/* 功能列表 */
+.feat-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feat-list li {
+    font-size: 14px;
+    line-height: 1.65;
+    color: #4a5568;
+    padding: 4px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.feat-list li:last-child {
+    border-bottom: none;
+}
+
+.feat-list li strong {
+    color: #0d9488;
+    font-weight: 600;
+}
+
+/* 彩蛋卡片特殊样式 */
+.feat-card-accent {
+    background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+    border-color: #bfdbfe;
+}
+
+.feat-card-accent .feat-num {
+    color: #bfdbfe;
+}
+
+/* 暗色模式 */
+body.dark-mode .features {
+    background-color: #141414;
+}
+
+body.dark-mode .features-title {
+    color: #e0e0e0;
+}
+
+body.dark-mode .features-subtitle {
+    color: #8896a6;
+}
+
+body.dark-mode .feat-card {
+    background-color: #1e1e1e;
+    border-color: #2a3140;
+}
+
+body.dark-mode .feat-card:hover {
+    border-color: #4da3ff;
+    box-shadow: 0 4px 16px rgba(77, 163, 255, 0.08);
+}
+
+body.dark-mode .feat-num {
+    color: #2a3140;
+}
+
+body.dark-mode .feat-card:hover .feat-num {
+    color: #4da3ff;
+    opacity: 0.2;
+}
+
+body.dark-mode .feat-card-title {
+    color: #d0d8e4;
+}
+
+body.dark-mode .feat-list li {
+    color: #8896a6;
+    border-bottom-color: #252d3a;
+}
+
+body.dark-mode .feat-list li strong {
+    color: #2dd4bf;
+}
+
+body.dark-mode .feat-card-accent {
+    background: linear-gradient(135deg, #1a2540 0%, #1e1e1e 100%);
+    border-color: #2a3a55;
+}
+
+body.dark-mode .feat-card-accent .feat-num {
+    color: #2a3a55;
+}
+
+/* 响应式 */
+@media (max-width: 970px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .features {
+        padding: 56px 0;
+    }
+
+    .features-container {
+        padding: 0 20px;
+    }
+
+    .features-header {
+        margin-bottom: 36px;
+    }
+
+    .features-title {
+        font-size: 26px;
+    }
+
+    .features-subtitle {
+        font-size: 14px;
+    }
+
+    .feat-card {
+        padding: 20px 18px;
+    }
+
+    .feat-num {
+        font-size: 32px;
+    }
+
+    .feat-card-title {
+        font-size: 16px;
+    }
+
+    .feat-list li {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .features {
+        padding: 40px 0;
+    }
+
+    .features-container {
+        padding: 0 16px;
+    }
+
+    .features-header {
+        margin-bottom: 28px;
+    }
+
+    .features-title {
+        font-size: 22px;
+    }
+
+    .feat-card {
+        padding: 16px 14px;
+    }
+
+    .feat-num {
+        font-size: 28px;
+    }
+
+    .feat-card-title {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+
+    .feat-list li {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+}

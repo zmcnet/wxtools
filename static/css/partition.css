@@ -1,0 +1,352 @@
+/* 分区管理展示区 */
+.partition {
+    padding: 80px 0;
+    background-color: #f8fafc;
+}
+
+.partition-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+}
+
+.partition-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.partition-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1a2332;
+    margin: 0 0 12px;
+}
+
+.partition-subtitle {
+    font-size: 16px;
+    color: #6b7280;
+    margin: 0;
+}
+
+.partition-body {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+/* 幻灯片 */
+.partition-slideshow {
+    flex: 1.1;
+    min-width: 0;
+    position: relative;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.slideshow-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.slide {
+    display: none;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.slide-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: #e8ecf1;
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #94a3b8;
+}
+
+.slide-placeholder svg {
+    width: 56px;
+    height: 56px;
+}
+
+.slide-placeholder span {
+    font-size: 14px;
+}
+
+/* 箭头 */
+.slide-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #555;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.slide-arrow:hover {
+    background-color: #fff;
+    color: #1a73e8;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}
+
+.slide-prev {
+    left: 12px;
+}
+
+.slide-next {
+    right: 12px;
+}
+
+/* 圆点指示器 */
+.slide-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #cbd5e1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dot.active {
+    background-color: #1a73e8;
+    width: 20px;
+    border-radius: 4px;
+}
+
+/* 功能卡片 */
+.partition-accordion {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.feature-card {
+    border: 1px solid #e8ecf1;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 18px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: border-color 0.2s ease;
+}
+
+.feature-card:hover {
+    border-color: #1a73e8;
+}
+
+.feature-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a2332;
+    margin: 0 0 8px;
+}
+
+.feature-card-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #5a6a7a;
+    margin: 0;
+}
+
+.feature-card-desc strong {
+    color: #0d9488;
+    font-weight: 600;
+}
+
+/* 暗色模式 */
+body.dark-mode .partition {
+    background-color: #151515;
+}
+
+body.dark-mode .partition-title {
+    color: #e0e0e0;
+}
+
+body.dark-mode .partition-subtitle {
+    color: #8896a6;
+}
+
+body.dark-mode .slide-placeholder {
+    background-color: #252d3a;
+    border-color: #3a4563;
+    color: #5a6a80;
+}
+
+body.dark-mode .slide-arrow {
+    background-color: rgba(30, 30, 30, 0.9);
+    color: #b0b0b0;
+}
+
+body.dark-mode .slide-arrow:hover {
+    background-color: #2a2a2a;
+    color: #4da3ff;
+}
+
+body.dark-mode .dot {
+    background-color: #3a4563;
+}
+
+body.dark-mode .dot.active {
+    background-color: #4da3ff;
+}
+
+body.dark-mode .feature-card {
+    background-color: #1e1e1e;
+    border-color: #2a3140;
+}
+
+body.dark-mode .feature-card:hover {
+    border-color: #4da3ff;
+}
+
+body.dark-mode .feature-card-title {
+    color: #d0d8e4;
+}
+
+body.dark-mode .feature-card-desc {
+    color: #8896a6;
+}
+
+body.dark-mode .feature-card-desc strong {
+    color: #2dd4bf;
+}
+
+/* 响应式 */
+@media (max-width: 970px) {
+    .partition-body {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .partition-slideshow {
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+    }
+
+    .partition-accordion {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .partition {
+        padding: 56px 0;
+    }
+
+    .partition-container {
+        padding: 0 20px;
+    }
+
+    .partition-header {
+        margin-bottom: 36px;
+    }
+
+    .partition-title {
+        font-size: 26px;
+    }
+
+    .partition-subtitle {
+        font-size: 14px;
+    }
+
+    .partition-slideshow {
+        margin: 0 auto;
+    }
+
+    .slideshow-wrapper {
+        text-align: center;
+    }
+
+    .slide-img {
+        margin: 0 auto;
+    }
+
+    .feature-card {
+        padding: 14px 16px;
+    }
+
+    .feature-card-title {
+        font-size: 15px;
+    }
+
+    .feature-card-desc {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .partition {
+        padding: 40px 0;
+    }
+
+    .partition-container {
+        padding: 0 16px;
+    }
+
+    .partition-header {
+        margin-bottom: 28px;
+    }
+
+    .partition-title {
+        font-size: 22px;
+    }
+
+    .slide-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+    }
+
+    .feature-card {
+        padding: 12px 14px;
+    }
+
+    .feature-card-title {
+        font-size: 14px;
+    }
+
+    .feature-card-desc {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+}

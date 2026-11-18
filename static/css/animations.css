@@ -1,0 +1,104 @@
+/* ===== 全局动画系统 ===== */
+/* 仅使用 transform 和 opacity，保证 GPU 加速、零重排 */
+
+/* --- 关键帧 --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-24px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(24px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+/* --- 滚动触发动画基类 --- */
+.anim {
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+.anim.visible {
+    animation-fill-mode: both;
+}
+
+.anim-fade-up.visible    { animation: fadeInUp 0.5s ease-out both; }
+.anim-fade.visible       { animation: fadeIn 0.4s ease-out both; }
+.anim-scale.visible      { animation: scaleIn 0.4s ease-out both; }
+.anim-slide-left.visible { animation: slideInLeft 0.5s ease-out both; }
+.anim-slide-right.visible{ animation: slideInRight 0.5s ease-out both; }
+
+/* 交错延迟 */
+.anim-delay-1 { animation-delay: 0.08s !important; }
+.anim-delay-2 { animation-delay: 0.16s !important; }
+.anim-delay-3 { animation-delay: 0.24s !important; }
+.anim-delay-4 { animation-delay: 0.32s !important; }
+.anim-delay-5 { animation-delay: 0.40s !important; }
+
+/* --- 按钮按压反馈 --- */
+.btn-press {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-press:active {
+    transform: scale(0.96) !important;
+}
+
+/* --- Hero 入场 --- */
+.hero-enter {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+.hero-enter-d1 { animation-delay: 0.1s; }
+.hero-enter-d2 { animation-delay: 0.2s; }
+.hero-enter-d3 { animation-delay: 0.3s; }
+.hero-enter-d4 { animation-delay: 0.4s; }
+
+/* --- 弹窗增强 --- */
+.modal-enter {
+    transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- 卡片悬浮微动 --- */
+.card-lift {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card-lift:hover {
+    transform: translateY(-3px);
+}
+
+/* --- 减弱动画偏好 --- */
+@media (prefers-reduced-motion: reduce) {
+    .anim,
+    .anim.visible,
+    .hero-enter {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .btn-press:active {
+        transform: none !important;
+    }
+
+    .card-lift:hover {
+        transform: none !important;
+    }
+}

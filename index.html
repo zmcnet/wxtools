@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <title data-en="NoHeart Tech | Android ROM Development">没有心科技 | Android ROM 开发与技术分享</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/header.css">
+    <link rel="stylesheet" href="static/css/footer.css">
+    <link rel="stylesheet" href="static/css/animations.css">
+    <style>
+        /* ===== 首页 Hero ===== */
+        .home-hero {
+            padding: 80px 24px 64px;
+            text-align: center;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8f0fe 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        body.dark-mode .home-hero {
+            background: linear-gradient(135deg, #0d1b2a 0%, #161b22 100%);
+        }
+        .home-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 40%, rgba(26, 115, 232, 0.06) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 60%, rgba(13, 71, 161, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .home-hero-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .home-hero-brand {
+            font-size: 48px;
+            font-weight: 800;
+            color: #1a2332;
+            margin: 0 0 6px;
+            letter-spacing: -0.02em;
+        }
+        body.dark-mode .home-hero-brand {
+            color: #e2e8f0;
+        }
+        .home-hero-sub {
+            font-size: 18px;
+            font-weight: 500;
+            color: #1a73e8;
+            margin: 0 0 16px;
+            letter-spacing: 0.04em;
+        }
+        body.dark-mode .home-hero-sub {
+            color: #4da3ff;
+        }
+        .home-hero-tagline {
+            font-size: 17px;
+            color: #5a6a7a;
+            margin: 0 0 8px;
+            line-height: 1.6;
+        }
+        body.dark-mode .home-hero-tagline {
+            color: #8896a6;
+        }
+        .home-hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .home-hero-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 36px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .home-hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.3);
+        }
+        .home-hero-btn-primary {
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            color: #fff;
+            border: none;
+        }
+        .home-hero-btn-primary:hover {
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.4);
+        }
+        .home-hero-btn-secondary {
+            background: #fff;
+            color: #1a73e8;
+            border: 2px solid #1a73e8;
+        }
+        body.dark-mode .home-hero-btn-secondary {
+            background: #1e1e1e;
+            border-color: #4da3ff;
+            color: #4da3ff;
+        }
+        .home-hero-btn-secondary:hover {
+            background: #f0f7ff;
+        }
+        body.dark-mode .home-hero-btn-secondary:hover {
+            background: #252d3a;
+        }
+
+        /* ===== 通用 Section ===== */
+        .home-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 64px 24px;
+        }
+        .home-section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .home-section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a2332;
+            margin: 0 0 8px;
+        }
+        body.dark-mode .home-section-title {
+            color: #e2e8f0;
+        }
+        .home-section-subtitle {
+            font-size: 15px;
+            color: #6b7280;
+            margin: 0;
+        }
+        body.dark-mode .home-section-subtitle {
+            color: #8896a6;
+        }
+
+        /* ===== 项目卡片 ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+        .project-card {
+            background: #fff;
+            border: 1px solid #e8ecf1;
+            border-radius: 16px;
+            padding: 40px 36px;
+            text-align: center;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+            border-color: #d0d8e0;
+        }
+        body.dark-mode .project-card {
+            background: #161b22;
+            border-color: #2a3140;
+        }
+        body.dark-mode .project-card:hover {
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+            border-color: #3a4555;
+        }
+        .project-card-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+        }
+        .project-card-icon-rom {
+            background: linear-gradient(135deg, #e8f0fe, #d2e3fc);
+        }
+        body.dark-mode .project-card-icon-rom {
+            background: linear-gradient(135deg, #1a2a4a, #0d1b3a);
+        }
+        .project-card-icon-tools {
+            background: linear-gradient(135deg, #fef3e8, #fde8d0);
+        }
+        body.dark-mode .project-card-icon-tools {
+            background: linear-gradient(135deg, #3a2a1a, #2a1a0d);
+        }
+        .project-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a2332;
+            margin: 0 0 12px;
+        }
+        body.dark-mode .project-card h3 {
+            color: #e2e8f0;
+        }
+        .project-card p {
+            font-size: 14px;
+            color: #5a6a7a;
+            line-height: 1.7;
+            margin: 0 0 24px;
+        }
+        body.dark-mode .project-card p {
+            color: #8896a6;
+        }
+        .project-card-btn {
+            display: inline-block;
+            padding: 10px 32px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .project-card-btn:hover {
+            transform: translateY(-2px);
+        }
+        .project-card-btn-rom {
+            background: #1a73e8;
+            color: #fff;
+        }
+        .project-card-btn-rom:hover {
+            box-shadow: 0 4px 16px rgba(26, 115, 232, 0.4);
+        }
+        .project-card-btn-tools {
+            background: #f59e0b;
+            color: #fff;
+        }
+        .project-card-btn-tools:hover {
+            box-shadow: 0 4px 16px rgba(245, 158, 11, 0.4);
+        }
+
+        /* ===== 关于 ===== */
+        .about-content {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .about-content p {
+            font-size: 15px;
+            color: #5a6a7a;
+            line-height: 1.8;
+            margin: 0 0 16px;
+        }
+        body.dark-mode .about-content p {
+            color: #8896a6;
+        }
+        .about-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== 统计数据 ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .stat-card {
+            background: #fff;
+            border: 1px solid #e8ecf1;
+            border-radius: 14px;
+            padding: 28px 16px;
+            text-align: center;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+        body.dark-mode .stat-card {
+            background: #161b22;
+            border-color: #2a3140;
+        }
+        body.dark-mode .stat-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: #1a73e8;
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+        body.dark-mode .stat-number {
+            color: #4da3ff;
+        }
+        .stat-label {
+            font-size: 13px;
+            color: #6b7280;
+            font-weight: 500;
+        }
+        body.dark-mode .stat-label {
+            color: #8896a6;
+        }
+
+        /* ===== 核心优势 ===== */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        .feature-item {
+            background: #fff;
+            border: 1px solid #e8ecf1;
+            border-radius: 14px;
+            padding: 32px 28px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .feature-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+        body.dark-mode .feature-item {
+            background: #161b22;
+            border-color: #2a3140;
+        }
+        body.dark-mode .feature-item:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+        .feature-icon-blue {
+            background: linear-gradient(135deg, #e8f0fe, #d2e3fc);
+        }
+        body.dark-mode .feature-icon-blue {
+            background: linear-gradient(135deg, #1a2a4a, #0d1b3a);
+        }
+        .feature-icon-orange {
+            background: linear-gradient(135deg, #fef3e8, #fde8d0);
+        }
+        body.dark-mode .feature-icon-orange {
+            background: linear-gradient(135deg, #3a2a1a, #2a1a0d);
+        }
+        .feature-icon-green {
+            background: linear-gradient(135deg, #e8faf0, #d0f5e0);
+        }
+        body.dark-mode .feature-icon-green {
+            background: linear-gradient(135deg, #1a3a2a, #0d2a1a);
+        }
+        .feature-icon-purple {
+            background: linear-gradient(135deg, #f0e8fa, #e0d0f5);
+        }
+        body.dark-mode .feature-icon-purple {
+            background: linear-gradient(135deg, #2a1a3a, #1a0d2a);
+        }
+        .feature-item h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a2332;
+            margin: 0 0 8px;
+        }
+        body.dark-mode .feature-item h3 {
+            color: #e2e8f0;
+        }
+        .feature-item p {
+            font-size: 14px;
+            color: #5a6a7a;
+            line-height: 1.7;
+            margin: 0;
+        }
+        body.dark-mode .feature-item p {
+            color: #8896a6;
+        }
+
+        /* ===== 最新动态 ===== */
+        .news-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .news-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #e8ecf1;
+        }
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        body.dark-mode .news-item {
+            border-bottom-color: #2a3140;
+        }
+        .news-date {
+            flex-shrink: 0;
+            width: 60px;
+            text-align: center;
+        }
+        .news-date-day {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1a73e8;
+            line-height: 1.1;
+        }
+        body.dark-mode .news-date-day {
+            color: #4da3ff;
+        }
+        .news-date-month {
+            font-size: 12px;
+            color: #94a3b8;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .news-content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a2332;
+            margin: 0 0 4px;
+        }
+        body.dark-mode .news-content h3 {
+            color: #e2e8f0;
+        }
+        .news-content p {
+            font-size: 14px;
+            color: #6b7280;
+            margin: 0;
+            line-height: 1.6;
+        }
+        body.dark-mode .news-content p {
+            color: #8896a6;
+        }
+        .news-more {
+            text-align: center;
+            margin-top: 24px;
+        }
+        .news-more a {
+            font-size: 14px;
+            color: #1a73e8;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .news-more a:hover {
+            text-decoration: underline;
+        }
+        body.dark-mode .news-more a {
+            color: #4da3ff;
+        }
+
+        /* ===== CTA 区域 ===== */
+        .cta-section {
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            border-radius: 20px;
+            padding: 56px 40px;
+            text-align: center;
+            margin: 0 24px;
+        }
+        body.dark-mode .cta-section {
+            background: linear-gradient(135deg, #0d1b3a, #0a1428);
+        }
+        .cta-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 12px;
+        }
+        .cta-section p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+            margin: 0 0 28px;
+            line-height: 1.6;
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: #fff;
+            color: #1a73e8;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+        body.dark-mode .cta-btn {
+            background: #1e1e1e;
+            color: #4da3ff;
+        }
+        @media (max-width: 768px) {
+            .cta-section {
+                padding: 40px 24px;
+                margin: 0 16px;
+                border-radius: 16px;
+            }
+            .cta-section h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="favicon.ico" alt="没有心科技图标" class="logo-icon">
+                <span class="logo-text" data-en="NoHeart Tech">没有心科技</span>
+            </div>
+            <div class="menu-section">
+                <nav class="main-menu">
+                    <a href="index.html" class="menu-item active" data-en="Home">首页</a>
+                    <a href="rom/index.html" class="menu-item" data-en="ROM">ROM发布</a>
+                    <a href="tools/index.html" class="menu-item" data-en="Wuxin Tools">无心工具箱</a>
+                    <a href="#" class="menu-item" data-en="Community">社区论坛</a>
+                    <a href="docs/index.html" class="menu-item" data-en="Tutorial">教程文档</a>
+                    <a href="contact.html" class="menu-item" data-en="Contact">联系我们</a>
+                </nav>
+                <div class="custom-functions">
+                    <button id="theme-toggle" class="theme-toggle btn-press" aria-label="切换主题">
+                        <span class="theme-icon">🌙</span>
+                        <span class="theme-text" data-en="Light">主题</span>
+                    </button>
+                    <button id="hamburger-btn" class="hamburger-btn btn-press" aria-label="打开菜单">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 移动端侧滑菜单 -->
+    <div id="menu-overlay" class="menu-overlay"></div>
+    <nav id="mobile-menu" class="mobile-menu">
+        <div class="mobile-menu-header">
+            <span class="mobile-menu-title" data-en="Menu">菜单</span>
+            <button id="mobile-menu-close" class="mobile-menu-close btn-press" aria-label="关闭菜单">&times;</button>
+        </div>
+        <a href="index.html" class="mobile-menu-item active" data-en="Home">首页</a>
+        <a href="rom/index.html" class="mobile-menu-item" data-en="ROM">ROM发布</a>
+        <a href="tools/index.html" class="mobile-menu-item" data-en="Wuxin Tools">无心工具箱</a>
+        <a href="#" class="mobile-menu-item" data-en="Community">社区论坛</a>
+        <a href="docs/index.html" class="mobile-menu-item" data-en="Tutorial">教程文档</a>
+        <a href="contact.html" class="mobile-menu-item" data-en="Contact">联系我们</a>
+        <div class="mobile-menu-divider"></div>
+        <button id="mobile-theme-toggle" class="mobile-theme-toggle btn-press">
+            <span class="theme-icon">🌙</span>
+            <span class="theme-text" data-en="Light">切换主题</span>
+        </button>
+    </nav>
+
+    <!-- 无心工具箱子导航（此页面不显示，保留结构） -->
+    <nav class="sub-nav" style="display:none;">
+        <div class="sub-nav-inner">
+            <a href="index.html" class="sub-nav-item active" data-en="Home">首页</a>
+            <a href="tools/index.html" class="sub-nav-item" data-en="Wuxin Tools">无心工具箱</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero / Banner -->
+        <section class="home-hero">
+            <div class="home-hero-inner">
+                <h1 class="home-hero-brand hero-enter" data-en="NoHeart Tech">没有心科技</h1>
+                <p class="home-hero-sub hero-enter hero-enter-d1" data-en="NoHeart Tech">匠心打造 · 极致体验</p>
+                <p class="home-hero-tagline hero-enter hero-enter-d2" data-en="Focused on Android ROM development and technology sharing">专注于 Android ROM 开发与技术分享</p>
+                <div class="home-hero-buttons hero-enter hero-enter-d3">
+                    <a href="rom/index.html" class="home-hero-btn home-hero-btn-primary btn-press" data-en="ROM Releases">ROM发布</a>
+                    <a href="tools/index.html" class="home-hero-btn home-hero-btn-secondary btn-press" data-en="Wuxin Tools">无心工具箱</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 我们的项目 -->
+        <section class="home-section">
+            <div class="home-section-header anim anim-fade-up">
+                <h2 class="home-section-title" data-en="Our Projects">我们的项目</h2>
+                <p class="home-section-subtitle" data-en="Explore our open projects">探索我们的开源项目</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card card-lift anim anim-fade-up anim-delay-1">
+                    <div class="project-card-icon project-card-icon-rom">📱</div>
+                    <h3 data-en="ROM Releases">ROM 发布</h3>
+                    <p data-en="Providing high-quality Android ROM development services, covering system customization, performance optimization, feature expansion and more, dedicated to delivering a smooth and stable user experience.">提供高品质 Android ROM 开发服务，涵盖系统定制、性能优化、功能扩展等，致力于为用户带来流畅稳定的使用体验。</p>
+                    <a href="rom/index.html" class="project-card-btn project-card-btn-rom btn-press" data-en="Browse ROMs">浏览 ROM</a>
+                </div>
+                <div class="project-card card-lift anim anim-fade-up anim-delay-2">
+                    <div class="project-card-icon project-card-icon-tools">🧰</div>
+                    <h3 data-en="Wuxin Tools">无心工具箱</h3>
+                    <p data-en="A powerful, clean and efficient Android debugging and flashing toolbox, supporting all ADB and FASTBOOT commands, making device management easier.">一款功能强大、简洁高效的 Android 调试与刷机工具箱，支持 ADB 和 FASTBOOT 全命令，让您的设备管理更轻松。</p>
+                    <a href="tools/index.html" class="project-card-btn project-card-btn-tools btn-press" data-en="Learn More">了解详情</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于没有心 -->
+        <section class="home-section">
+            <div class="home-section-header anim anim-fade-up">
+                <h2 class="home-section-title" data-en="About NoHeart Tech">关于没有心</h2>
+                <p class="home-section-subtitle" data-en="Know more about us">了解更多关于我们</p>
+            </div>
+            <div class="about-content anim anim-fade-up anim-delay-1">
+                <p data-en="NoHeart Tech (没有心科技) is a team dedicated to Android ROM development and technology sharing. We are passionate about exploring the boundaries of the Android system, from in-depth system customization to efficient tool development, always committed to providing high-quality technical solutions for the Android ecosystem.">没有心科技（NoHeart Tech）是一个专注于 Android ROM 开发与技术分享的团队。我们热衷于探索 Android 系统的边界，从深度的系统定制到高效的工具开发，始终致力于为 Android 生态提供优质的技术解决方案。</p>
+                <p data-en="Our mission is to lower the technical threshold of Android development, allowing more enthusiasts to participate and enjoy the joy of creation. Whether it's ROM development, system optimization, or flashing tools, we strive for excellence in every detail.">我们的使命是降低 Android 开发的技术门槛，让更多爱好者能够参与其中，享受创造的乐趣。无论是 ROM 开发、系统优化还是刷机工具，我们都在每一个细节上追求极致。</p>
+            </div>
+        </section>
+
+        <!-- 统计数据 -->
+        <section class="home-section">
+            <div class="stats-grid anim anim-fade-up">
+                <div class="stat-card">
+                    <div class="stat-number" data-en="10+">10+</div>
+                    <div class="stat-label" data-en="ROM Versions">ROM 版本</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-en="5K+">5K+</div>
+                    <div class="stat-label" data-en="Active Users">活跃用户</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-en="99%">99%</div>
+                    <div class="stat-label" data-en="Uptime">稳定运行</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-en="3+">3+</div>
+                    <div class="stat-label" data-en="Years">年经验</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 核心优势 -->
+        <section class="home-section">
+            <div class="home-section-header anim anim-fade-up">
+                <h2 class="home-section-title" data-en="Why Choose Us">为什么选择我们</h2>
+                <p class="home-section-subtitle" data-en="Our core strengths and values">我们的核心优势与价值观</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item anim anim-fade-up anim-delay-1">
+                    <div class="feature-icon feature-icon-blue">🎯</div>
+                    <h3 data-en="Professional Development">专业开发</h3>
+                    <p data-en="Years of Android ROM development experience, deep understanding of system architecture, ensuring every release is stable and reliable.">多年 Android ROM 开发经验，深谙系统架构，确保每个版本稳定可靠。</p>
+                </div>
+                <div class="feature-item anim anim-fade-up anim-delay-2">
+                    <div class="feature-icon feature-icon-orange">⚡</div>
+                    <h3 data-en="Performance Optimization">性能优化</h3>
+                    <p data-en="Deep system optimization from kernel to application layer, delivering a smooth and responsive user experience.">从内核到应用层深度优化，带来流畅顺滑的使用体验。</p>
+                </div>
+                <div class="feature-item anim anim-fade-up anim-delay-3">
+                    <div class="feature-icon feature-icon-green">🔧</div>
+                    <h3 data-en="Powerful Tools">强大工具</h3>
+                    <p data-en="Self-developed flashing tool suite, feature-rich and easy to use, lowering the barrier to Android development.">自主研发刷机工具集，功能丰富、操作简便，降低 Android 开发门槛。</p>
+                </div>
+                <div class="feature-item anim anim-fade-up anim-delay-1">
+                    <div class="feature-icon feature-icon-purple">💬</div>
+                    <h3 data-en="Community Driven">社区驱动</h3>
+                    <p data-en="Active user community, timely feedback and support, continuous iteration based on real user needs.">活跃的用户社区，及时的反馈与支持，基于真实需求持续迭代。</p>
+                </div>
+                <div class="feature-item anim anim-fade-up anim-delay-2">
+                    <div class="feature-icon feature-icon-blue">🔒</div>
+                    <h3 data-en="Security First">安全优先</h3>
+                    <p data-en="Strict code review and security audit, ensuring system integrity and user data security.">严格的代码审查与安全审计，保障系统完整性与用户数据安全。</p>
+                </div>
+                <div class="feature-item anim anim-fade-up anim-delay-3">
+                    <div class="feature-icon feature-icon-orange">🌐</div>
+                    <h3 data-en="Open Source">开放开源</h3>
+                    <p data-en="Adhering to the open-source spirit, sharing technical achievements, and promoting community development together.">秉承开源精神，分享技术成果，与社区共同成长。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最新动态 -->
+        <section class="home-section">
+            <div class="home-section-header anim anim-fade-up">
+                <h2 class="home-section-title" data-en="Latest Updates">最新动态</h2>
+                <p class="home-section-subtitle" data-en="Stay tuned for our latest news">关注我们的最新消息</p>
+            </div>
+            <div class="news-list anim anim-fade-up anim-delay-1">
+                <div class="news-item">
+                    <div class="news-date">
+                        <div class="news-date-day">07</div>
+                        <div class="news-date-month" data-en="Jul">7月</div>
+                    </div>
+                    <div class="news-content">
+                        <h3 data-en="Wuxin Tools v4.5 Released">无心工具箱 v4.5 发布</h3>
+                        <p data-en="New features: dynamic partition management, enhanced file manager, and performance improvements.">新增动态分区管理、增强文件管理器、性能优化等多项更新。</p>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">
+                        <div class="news-date-day">15</div>
+                        <div class="news-date-month" data-en="Jun">6月</div>
+                    </div>
+                    <div class="news-content">
+                        <h3 data-en="New ROM Release: AOSP 15 Based">新 ROM 发布：基于 AOSP 15</h3>
+                        <p data-en="Based on the latest AOSP 15, optimized for performance and battery life, supporting multiple devices.">基于最新 AOSP 15 适配，优化性能与续航，支持多款设备。</p>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">
+                        <div class="news-date-day">01</div>
+                        <div class="news-date-month" data-en="Jun">6月</div>
+                    </div>
+                    <div class="news-content">
+                        <h3 data-en="NoHeart Tech Official Website Launched">没有心科技官网正式上线</h3>
+                        <p data-en="The new team website is live, bringing together ROM releases, tool downloads, and documentation.">全新团队官网启用，集合 ROM 发布、工具下载、文档等一站式服务。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="news-more">
+                <a href="tools/update.html" data-en="View All Updates →">查看全部更新 →</a>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="home-section" style="max-width:100%;padding:64px 0;">
+            <div class="cta-section anim anim-fade-up">
+                <h2 data-en="Join the NoHeart Community">加入没有心社区</h2>
+                <p data-en="Whether you're a developer or an enthusiast, we welcome you to join our community to explore the possibilities of Android together.">无论你是开发者还是爱好者，欢迎加入我们的社区，一起探索 Android 的无限可能。</p>
+                <a href="contact.html" class="cta-btn btn-press" data-en="Contact Us →">联系我们 →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-logo-side">
+                    <img src="favicon.ico" alt="没有心科技" class="footer-logo-img">
+                    <span class="footer-logo-name" data-en="NoHeart Tech">没有心科技</span>
+                </div>
+                <div class="footer-links-side">
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="Navigation">导航</h4>
+                        <a href="index.html" data-en="Home">首页</a>
+                        <a href="rom/index.html" data-en="ROM">ROM发布</a>
+                        <a href="tools/index.html" data-en="Wuxin Tools">无心工具箱</a>
+                        <a href="#" data-en="Community">社区论坛</a>
+                        <a href="docs/index.html" data-en="Tutorial">教程文档</a>
+                        <a href="contact.html" data-en="Contact">联系我们</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="NoHeart Tech">没有心科技</h4>
+                        <a href="https://wx.ysyplat.cn/rom" target="_blank" rel="noopener" data-en="ROM Releases">ROM发布</a>
+                        <a href="https://wx.ysyplat.cn/tools" target="_blank" rel="noopener" data-en="Wuxin Tools">无心工具箱</a>
+                        <a href="#" target="_blank" rel="noopener" data-en="Community">社区论坛</a>
+                        <a href="contact.html" target="_blank" rel="noopener" data-en="Contact Us">联系我们</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4 class="footer-col-title" data-en="Links">友情链接</h4>
+                        <a href="https://www.kybll.cn/" target="_blank" rel="noopener" data-en="KYBLL">空雨不流泪</a>
+                        <a href="https://www.ysyplat.com/" target="_blank" rel="noopener" data-en="YSYPLAT">屿笙云平台</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright" data-en="&copy; 2025-2026 NoHeart Tech. All Rights Reserved.">&copy; 2025-2026 没有心科技. All Rights Reserved.</p>
+                <div class="footer-beian" data-en=" ">
+                    <a class="footer-icp" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">浙ICP备2023036308号-9</a>
+                    <a class="footer-gabeian" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33019202003173" target="_blank" rel="noopener">
+                        <img src="static/images/gabeian.png" alt="" class="gabeian-icon">浙公网安备33019202003173号
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="static/js/config.js"></script>
+    <script src="static/js/i18n.js"></script>
+    <script src="static/js/theme.js"></script>
+    <script src="static/js/page-transition.js"></script>
+    <script src="static/js/animations.js"></script>
+</body>
+</html>
