@@ -105,4 +105,6 @@ wxtools/
 
 ## 许可
 
-© 没有心科技。保留所有权利。
+MIT License — © 2026 ZMCNET（没有心科技）
+
+详见 [LICENSE](LICENSE)。
